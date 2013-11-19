@@ -18,7 +18,7 @@ Si ExpressionEngine n’est pas encore très connu en Europe et en Belgique, il 
 
 ### Channels
 
-Les [channels](http://ellislab.com/expressionengine/user-guide/modules/channel/index.html) occupent une place centrale dans le mode de fonctionnement d’ExpressionEngine et sont au coeur de sa flexibilité. La plus grande partie des contenus du site vont être définis et structurés dans des channels. ExpressionEngine permet de définir des types de contenus très différents sans aucun présupposés.
+Les [channels](http://ellislab.com/expressionengine/user-guide/modules/channel/index.html) occupent une place centrale dans le mode de fonctionnement d’ExpressionEngine et sont au coeur de sa flexibilité. La plus grande partie des contenus du site vont être définis et structurés dans des channels. ExpressionEngine permet de définir des types de contenus très différents sans aucun présupposé.
 
 Si vous avez besoin d’une métaphore, pensez à vos channels comme à des tables dans une bases de données. Les channels sont les outils pricipaux à l’aide desquels vous allez organiser et structurer les informations de votre futur site.
 
@@ -51,7 +51,7 @@ Moyennant une connaissance de base de PHP et à l’aide de la documentation fou
 
 Chaque entry dans un channel possède une structure bien précise, définie par les champs associés au channel. [Chaque entry possède également un statut](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses.html). Les statuts sont généralement utilisés pour déterminer le statut de publication d’un item donné (publié, non-publié, en révision, brouillon, etc.).
 
-Par défaut, les channels sont associés à un groupe de statuts de base définissant seulement deux états: publié (open) et non-publié (closed). Vous pouvez soit ajouter des statuts à ce groupe, soit créer d’‘autres groupes de statuts que vous pourrez ensuite lier à un ou plusieurs channels.
+Par défaut, les channels sont associés à un groupe de statuts de base définissant seulement deux états: publié (open) et non-publié (closed). Vous pouvez soit ajouter des statuts à ce groupe, soit créer d’autres groupes de statuts que vous pourrez ensuite lier à un ou plusieurs channels.
 
 ### Catégories
 
@@ -120,7 +120,7 @@ Expressionenigne fait passer toutes les requêtes http par un fichier index.php 
 
 ### Tags
 
-ExpressionEngine possède de nombreux tags et paramètres vous permettant d’afficher vos données et de réaliser certains tests et traitement de celles-ci avant affichage. Nous nous contenterons ici d’examiner les plus utilisés: les entry loops et les structures de contrôle ou conditionnelles.
+ExpressionEngine possède de nombreux tags et paramètres vous permettant d’afficher vos données et de réaliser certains tests et traitement de celles-ci avant affichage. Nous nous contenterons ici d’examiner les plus utilisés: les entry loops et les structures de contrôle ou tags conditionnels.
 
 #### Channel Entries loops
 
@@ -179,7 +179,7 @@ If / elseif
 
 L’ordre dans lequel ExpressionEngine execute ses opération (parse order) et le type de conditionnels utilisés peuvent parfois poser problème. Il faut donc vous familiarisez avec le mode de fonctionnement d’ExpressionEngine en la matière. Voir à ce sujet une présentation détaillée par Lodewijk Schutte (Low).
 
-Il existe des add-ons gratuits étendant les possibilités des structures conditionnelles de base et modifie leur ordre de préséance dans l’exécution des operations par ExpressionEngine. Les plus connus et les plus utilisés sont dans doute Switchee et IfElse développés par Mark Croxton.
+Il existe des add-ons gratuits étendant les possibilités des structures conditionnelles de base et modifiant leur ordre de préséance dans l’exécution des operations par ExpressionEngine. Les plus connus et les plus utilisés sont dans doute [Switchee](http://devot-ee.com/add-ons/switchee) et [IfElse](http://devot-ee.com/add-ons/ifelse) développés par Mark Croxton.
 
 #### URL segments
 
@@ -199,13 +199,13 @@ Les Embedded templates utilisent plus de ressources que les snippets, qui eux-m�
 
 #### Global Variables
 
-Contiennent de petites informations comme des introductions ou des petits contenus isolés que vous souhaitez tout de même pouvoir mettre à jour facilement. Ne peuvent pas contenir de tags ExpressionEngine
+Contiennent de petites informations comme des introductions ou des contenus isolés que vous souhaitez tout de même pouvoir mettre à jour facilement. Ne peuvent pas contenir de tags ExpressionEngine
 
 `{gv_news_page_intro}`
 
 #### Snippets
 
-Eléments dynamiques pouvant faire appel au contenu des channels et pouvant donc contenir des tags ExpressionEngine
+Eléments dynamiques pouvant faire appel au contenu des channels et pouvant donc contenir des tags ExpressionEngine.
 
 Exemple: liste des trois dernière news publiées `{sn_my_snippet}`
 
@@ -241,7 +241,7 @@ Comme exercice, nous allons créer un portfolio et un blog à l'aide d'Expressio
 
 La première étpe consiste à installer le software en local sur votre machine. Personellement, je travaille sur mac et [MAMP](http://www.mamp.info/en/index.html) est une solution très facile d'utilisation pour créer et maintenir un environnment de dévelopement local.
 
-Une fois un environnement de développement local créé et configuré, il suffit de télécharger ExpressionEngine et de suivre pas à pas le[s instructions d'installation mises à disposition par EllisLab](http://ellislab.com/expressionengine/user-guide/installation/installation.html). Veillez aussi à suivre [les conseils de sécurité](http://ellislab.com/expressionengine/user-guide/installation/best_practices.html) une fois l'installation terminée.
+Une fois un environnement de développement local créé et configuré, il suffit de télécharger ExpressionEngine et de suivre pas à pas les [instructions d'installation mises à disposition par EllisLab](http://ellislab.com/expressionengine/user-guide/installation/installation.html). Veillez aussi à suivre [les conseils de sécurité](http://ellislab.com/expressionengine/user-guide/installation/best_practices.html) une fois l'installation terminée.
 
 Si le sujet de la sécurité vous intéresse, je ne peux que vous recommander [le petit guide de Mark Huot disponible sur Mijingo](http://mijingo.com/products/ebooklets/securing-expressionengine-2/).
 
@@ -260,6 +260,8 @@ Voici une liste non exhaustives des conventions que j'applique:
 - Etablir et respecter une nomenclature:
 	- Tout cutom field est préfixé par "cf", les global variables par "gv", les snippets par "sn", etc. Une telle nomenclature augmente grandement la lisibilité des templates
 	- Tout custom field utilise un namespace correspondant au channel auquel il s'applique: "cf_work_img", "cf_blog_summary", "cf_blog_body", etc.
+	
+Vous trouverez un exemple de plan dans le repository.
 
 ### Configuration
 
@@ -267,7 +269,7 @@ Une fois le plan réalisé, passons à la configuration du système.
 
 #### Supprimer index.php des URL avec .htaccess
 
-Sur des serveurs UNIX / Apache, [EllisLab fourni une marche à suivre pour supprimer "index.php" des URLs de votre site](http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html). Celle-ci implique de créer un fichier .htaccess dans la racine de votre folder publique.
+Sur des serveurs UNIX / Apache, [EllisLab fourni une marche à suivre pour supprimer "index.php" des URLs de votre site](http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html). Celle-ci implique de créer un fichier .htaccess dans la racine de votre folder publique (htdocs).
 
 #### Etapes pour gagner du temps
 
@@ -321,15 +323,23 @@ Voici [quelques](http://jamieonsoftware.com/post/59689619654/getting-to-know-exp
 
 [Chanel Form](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_form/) permet de créer des formulaires pour éditer ou publier des entries sans passer par votre control panel, directement depuis le front-end de votre site.
 
-Chennel form est compatible avec de nombreux custom fields parmi les plus populaires et vous permet de créer de véritables applications en ligne à l’aide d’ExpressionEngine.
+Chennel form est compatible avec de nombreux custom fields parmi les plus populaires et vous permet de créer de véritables petites applications en ligne à l’aide d’ExpressionEngine.
 
 ### Add-ons
 
-De nombreux add-ons gratuits ou payants vous permettent d’augmenter les capacités et la flexibilité d’ExpressionEngine. [Devot-ee](http://devot-ee.com/) répertorie aujourd’hui autour de 2000 add-ons pour ExpressionEngine.
+De nombreux add-ons gratuits ou payants vous permettent d’augmenter les capacités et la flexibilité d’ExpressionEngine.
 
-La communcauté comporte pas mal de développeurs reconnus pour leur travail et offrant un support utilisateur de qualité: Solspace, EE garage (Leevi Graham), Pixelandtonic (Brandon Kelly & team), Go to Low (Lodewijk Schutte), Mark Croxton, Mighty Big Robot, EE-Zoo, Dev Demon, etc.
+#### Devot-ee
 
-Si vous ne trouvez pas votre bonheur ou si vous souhaitez développer vous même vos propres add-ons, [EllisLab vous propose des instructions détaillés pour ce faire](http://ellislab.com/expressionengine/user-guide/development/). ExpressionEngine étant développé sur base du framwork MVC open source qu’est [CodeIgniter](http://ellislab.com/codeigniter), les ressources de ce framework sont disponibles et vous permettent de développer des add-ons relativement complexes en en temps record.
+[Devot-ee](http://devot-ee.com/) répertorie aujourd’hui autour de 2000 add-ons pour ExpressionEngine.
+
+La communcauté comporte pas mal de développeurs reconnus pour leur travail et offrant un support utilisateur de qualité: Solspace, EE garage (Leevi Graham), Pixelandtonic (Brandon Kelly & Brad Bell and Andris Ševčenko), Go to Low (Lodewijk Schutte), Mark Croxton, Mighty Big Robot, EE-Zoo, Dev Demon, etc.
+
+#### Développer vos propres add-ons
+
+Si vous souhaitez développer vous même vos propres add-ons, [EllisLab vous propose des instructions détaillés pour ce faire](http://ellislab.com/expressionengine/user-guide/development/).
+
+ExpressionEngine étant développé sur base du framwork MVC open source qu’est [CodeIgniter](http://ellislab.com/codeigniter), les ressources de ce framework sont disponibles et vous permettent de développer des add-ons relativement complexes en en temps record.
 
 ## Resources
 
@@ -340,8 +350,8 @@ Si vous préférez quelques tutoriels en ligne pour vous lancer, Mike Boyink de 
 [Getting Started with ExpressionEngine 2](http://vimeo.com/41789424) par Ellislab
 
 - [Devot-ee](http://devot-ee.com/): le site de référence en matière d’add-ons pour ExpressionEngine
-- [Show-ee](http://www.show-ee.com/): un site sur lequel vous pourrez admirer de nombreux sites réalisés à l’aide d’ExpressionEngine
-- [EE-Insider](http://eeinsider.com/): la source de référence en ce qui concerne les news de la communauté
+- [Show-ee](http://www.show-ee.com/): un site sur lequel vous pourrez trouver de nombreux sites réalisés à l’aide d’ExpressionEngine
+- [EE-Insider](http://eeinsider.com/): la référence en ce qui concerne les news de la communauté
 - [Le blog officiel d’EllisLab](http://ellislab.com/blog): de nombreux articles sont consacrés à ExpressionEngine.
 - [ExpressionEngine conference](http://www.expressionengineconference.com/): Les conférences annuelles consacrées à ExpressionEngine
 - [Vidéos de certains talks à EECI](http://vimeo.com/whoooz) mises à votre disposition par Inspire Conférence et Robert Eerhart
