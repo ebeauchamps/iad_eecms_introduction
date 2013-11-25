@@ -293,7 +293,118 @@ Lorsque vous mettez en place un site ExpressionEngine, il convient de faire les 
 
 ### Création des templates
 
+##### Embeds, snippets et global variables
+
+**embeds/.siteheader**
+
+Le header et la navigation du site sont gérés au sein d'un embedded template, ce qui nous permettra de passer diverses variables qui changeront suivant le template affiché: valeur du tag `<title>`, navigation courante, etc.
+
+```html
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+		<meta charset="utf-8" />
+		<title>{if "{embed:html_title}" != ""}{embed:html_title} - {/if}My Super Website</title>
+		<meta name="description" content="my site is really nice" />
+		<link rel="stylesheet" href="{site_url}/assets/css/screen.css" media="screen" />
+	</head>
+	<body>
+		{!-- Navigation --}
+		<nav>
+			<ul>
+				<li{if "{embed:current_nav}" == "home"} class="current"{/if}><a href="{site_url}">Home</a></li>
+				<li{if "{embed:current_nav}" == "work"} class="current"{/if}><a href="{path='work/index'}">Work</a></li>
+				<li{if "{embed:current_nav}" == "blog"} class="current"{/if}><a href="{path='blog/index'}">Blog</a></li>
+				<li{if "{embed:current_nav}" == "about"} class="current"{/if}><a href="/about">About</a></li>
+			</ul>
+		</nav>
+```
+
+**snippets/sn_sitefooter**
+
+Le footer du site est géré uniquement à l'aide d'un snippet. Nous n'avons pas besoin de passer de variables dans ce cas-ci. Un snippet est donc l'outil idéal dans ce cas-ci.
+
+```
+	<div class="sitefooter">
+		<p>&copy; {current_time format="%Y"} La casa productions</p>
+	</body>
+</html>
+```
+
+** global variables **
+
+Nous utiliserons les global variables pour stocker tous les petits éléments du site qui doivent être facilement éditables mais ne trouvent pas naturellement leur place dans un channel (intriduction et liste des pages, code google analytics, etc)
+
 #### Homepage
+
+```html
+{!-- embed header --}
+{embed="embeds/.siteheader" html_title="Homepage" current_nav="home"}
+
+		{!-- Global variables for title and intro --}
+		{gv_homepage_title}
+		{gv_homepage_intro}
+
+		<h2>Recent Work</h2>
+
+		{!-- Get latest 3 work entries --}
+		{exp:channel:entries
+			disable="categories|category_fields|member_data|pagination|trackbacks"
+			channel="works"
+			orderby="date"
+			sort="asc"
+			limit="3"
+			dynamic="no"
+		}
+			{if count == 1}<ul class="list-latestworks">{/if}
+
+				<li>
+					<article>
+						<p class="imgholder"><a href="{url_title_path='work/detail'}"><img src="{cf_work_img:small}" alt="{title}" /></a></p>
+						<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
+					</article>
+				</li>
+
+			{if count == total_results}</ul>{/if}
+
+			{if no_results}<p>No work found: I have been very lazy lately</p>{/if}
+
+		{/exp:channel:entries}
+
+
+		<h2>From the blog</h2>
+
+		{!-- Get latest 3 blog entries --}
+		{exp:channel:entries
+			disable="categories|category_fields|member_data|pagination|trackbacks"
+			channel="blogs"
+			orderby="date"
+			sort="asc"
+			limit="3"
+			dynamic="no"
+		}
+			{if count == 1}<ul class="list-latestblogs">{/if}
+
+				<li>
+					<article>
+						<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%M %d, %Y"}</time></p>
+						<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
+						{cf_blog_summary}
+					</article>
+				</li>
+
+			{if count == total_results}</ul>{/if}
+
+			{if no_results}<p>No blogpost found: I guess I didn't write anything</p>{/if}
+
+		{/exp:channel:entries}
+
+{!-- footer as snippet --}
+{sn_sitefooter}
+```
 
 #### Blog: archive et catégories
 
