@@ -45,6 +45,8 @@ Closed		closed
 - cf_work_summary
 	- Wysiwyg
 	- Mandatory
+- cf_work_url
+	- textfield (256)
 
 
 ### Blogs
@@ -81,7 +83,7 @@ Closed		closed
 	- index (list)
 	- post (detail)
 - about
-	- index
+	- index (page module)
 - embeds
 	- .page_header
 

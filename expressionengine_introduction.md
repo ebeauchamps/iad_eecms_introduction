@@ -124,7 +124,7 @@ ExpressionEngine possède de nombreux tags et paramètres vous permettant d’af
 
 #### Channel Entries loops
 
-La tag pair channel entries est votre outil de travail principal lorsque vous codez des templates. Cette tag pair vous permet d’afficher les données stockées dans vos channels. De nombreux paramètres sont disponibles et vous permettent de cibler vos requêtes.
+[La tag pair channel entries](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html) est votre outil de travail principal lorsque vous codez des templates. Cette tag pair vous permet d’afficher les données stockées dans vos channels. De nombreux paramètres sont disponibles et vous permettent de cibler vos requêtes.
 
 ```
 {exp:channel:entries channel="channel_short_name" disable="custom_fields|categories|category_fields|member_data|pagination|trackbacks" orderby="date" sort="desc" limit="10" dynamic="no"}
@@ -135,9 +135,9 @@ La tag pair channel entries est votre outil de travail principal lorsque vous co
 - **Channel**: vous permet de sélectionner le channel que vous visez. Il est possible d’aller chercher des entries dans plusieurs channels channel=”news|events” ou encore de travailler par exclusion plutôt que par inclusion channel=”not news”.
 - **Status**: paramètre permettant de choisir des entrées ayant un certain status: status="open", status="not closed", status="open|highlight"
 - **Disable**: paramètre d’optimisation. Si vous n’avez pas besoin de quelque chose, spécifiez-le ici. Ce paramètre évite au système d’allouer des ressources à des tâches non nécessaires.
-- **Orderby** et Sort: permettent de classer les entries selon certains critères: date de publication, titre, custom field, status, etc. et de les afficher en ordre croissant ou décroissant. Ces paramètres peuvent être chaînés: orderby=”title|date” sort=”asc|desc”
-- **Limit**: limite le nombre d’entries affichées sur une page. ce paramètre est couplé à la pagination pour vous permettre d’afficher de longues listes sur plusieurs pages.
-- **Dynamic**: par defaut, ExpressionEngine va tenter d’être intelligent de travailler d’après la structure de vos URLs. Si vous souhaitez qu’il ne le fasse pas, ce paramètre doit être mis à “no”.
+- **Orderby** et **Sort**: permettent de classer les entries selon certains critères: date de publication, titre, custom field, status, etc. et de les afficher en ordre croissant ou décroissant. Ces paramètres peuvent être chaînés: orderby=”title|date” sort=”asc|desc”
+- **Limit**: limite le nombre d’entries affichées sur une page. ce paramètre est couplé à la [pagination](http://ellislab.com/expressionengine/user-guide/modules/channel/pagination_page.html) pour vous permettre d’afficher de longues listes sur plusieurs pages.
+- **Dynamic**: par defaut, ExpressionEngine va tenter d’être intelligent et de travailler d’après la structure de vos URLs. Si vous souhaitez qu’il ne le fasse pas, ce paramètre doit être mis à “no”.
 
 #### Structure conditionelles et opérateurs
 
@@ -177,9 +177,9 @@ If / elseif
 {/if}
 ```
 
-L’ordre dans lequel ExpressionEngine execute ses opération (parse order) et le type de conditionnels utilisés peuvent parfois poser problème. Il faut donc vous familiarisez avec le mode de fonctionnement d’ExpressionEngine en la matière. Voir à ce sujet une présentation détaillée par Lodewijk Schutte (Low).
+L’ordre dans lequel ExpressionEngine execute ses opération (parse order) et le type de conditionnels utilisés peuvent parfois poser problème. Il faut donc vous familiarisez avec le mode de fonctionnement d’ExpressionEngine en la matière. Voir à ce sujet un [PDF](http://loweblog.com/downloads/ee-parse-order.pdf) et une [présentation détaillée](https://speakerdeck.com/low/parse-order-pro) par Lodewijk Schutte (Low).
 
-Il existe des add-ons gratuits étendant les possibilités des structures conditionnelles de base et modifiant leur ordre de préséance dans l’exécution des operations par ExpressionEngine. Les plus connus et les plus utilisés sont dans doute [Switchee](http://devot-ee.com/add-ons/switchee) et [IfElse](http://devot-ee.com/add-ons/ifelse) développés par Mark Croxton.
+Il existe des add-ons gratuits étendant les possibilités des structures conditionnelles de base et modifiant leur ordre de préséance dans l’exécution des operations par ExpressionEngine. Les plus connus et les plus utilisés sont dans doute [Switchee](http://devot-ee.com/add-ons/switchee) et [IfElse](http://devot-ee.com/add-ons/ifelse) développés par Mark "the" Croxton.
 
 #### URL segments
 
@@ -249,14 +249,14 @@ Si le sujet de la sécurité vous intéresse, je ne peux que vous recommander [l
 
 Avant de commencer à coder, il est important de créer un fichier de planning, généralement sous la forme d'un document texte. Ce document, [inspiré de celui utilisé par Newism / Leevi Graham](http://vimeo.com/13378574), spécifie tout ce que nous derons créer dans ExpressionEngine pour satisfaire les besoins du projet.
 
-Voici un exemple de fichier de planning. Pour ma part, j'inclus généralement ce dernier dans mon repository git pour le site, il est donc disponible pour tout le monde.
+Pour ma part, j'inclus généralement ce dernier dans mon repository git pour le site, il est donc disponible pour tout le monde.
 
-Outre le plan, il est également ilmportant de suivre certaines conventions. Celles-ci vont vous permettre de gagner du temps et de clarifier une série de concepts pour les membres de votre équipe ou pour tout développeur devant travailler sur votre site par après.
+Outre le plan, il est également important de suivre certaines conventions. Celles-ci vont vous permettre de gagner du temps et de clarifier une série de concepts pour les membres de votre équipe ou pour tout développeur devant travailler sur votre site par après.
 
 Voici une liste non exhaustives des conventions que j'applique:
 
 - Avoir un field group correspondant à chaque channel. Cela peut créer certaines répétitions mais c'est nettement plus clair pour tout le monde.
-- Un seul status group par site. Ces status sont uniquement liés au workflow de publication
+- Un seul status group par site dans la mesure du possible. Ces status sont uniquement liés au workflow de publication.
 - Etablir et respecter une nomenclature:
 	- Tout cutom field est préfixé par "cf", les global variables par "gv", les snippets par "sn", etc. Une telle nomenclature augmente grandement la lisibilité des templates
 	- Tout custom field utilise un namespace correspondant au channel auquel il s'applique: "cf_work_img", "cf_blog_summary", "cf_blog_body", etc.
