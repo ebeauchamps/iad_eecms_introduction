@@ -46,7 +46,8 @@ Closed		closed
 	- Wysiwyg
 	- Mandatory
 - cf_work_url
-	- textfield (256)
+	- Text file (128)
+	- Mandatory
 
 
 ### Blogs
@@ -75,15 +76,14 @@ Closed		closed
 - site
 	- index (homepage: intro / 3 latest works / 3 latest blog posts)
 	- 404
-	- rss (blog)
+	- page (used for about page)
 - work
 	- index (list)
 	- detail
 - blog
 	- index (list)
 	- post (detail)
-- about
-	- index (page module)
+	- rss (feed: last 10 blogposts)
 - embeds
 	- .page_header
 
@@ -95,9 +95,9 @@ Closed		closed
 
 ## Global Variables
 
-- gv_home_intro
-- gv_worklist_title
-- gv_worklist_intro
-- gv_bloglist_title
-- gv_bloglist_intro
-- gv_footer_text
+- gv_home_title (homepage title)
+- gv_home_intro (homepage intro)
+- gv_work_title (work list page title)
+- gv_work_intro (work list page intro)
+- gv_blog_title (blog list page title)
+- gv_blog_intro (blog list page intro)

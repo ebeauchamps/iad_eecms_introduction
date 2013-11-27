@@ -2,7 +2,7 @@
 
 ## ExpressionEngine
 
-[ExpressionEngine](http://www.ellislab.com/expressionengine) est un CMS flexible développé par EllisLab et basé sur PHP et MySQL. ExpressionEngine est développé sur base d’un framework PHP open-source: [CodeIgniter](http://www.codeigniter.com) Ses fonctionnalités peuvent donc facilement être étendues à l’aide d’add-ons rédigés dans ce langage.
+[ExpressionEngine](http://www.ellislab.com/expressionengine) est un CMS flexible développé par [EllisLab](http://www.ellislab.com/) et basé sur PHP et MySQL. ExpressionEngine est développé sur base d’un framework PHP open-source: [CodeIgniter](http://www.codeigniter.com) Ses fonctionnalités peuvent donc être étendues à l’aide d’add-ons rédigés dans ce langage.
 
 A mes yeux, les grands atouts d’ExpressionEngine sont:
 
@@ -10,9 +10,9 @@ A mes yeux, les grands atouts d’ExpressionEngine sont:
 - Sa nature modulaire qui lui donne une grande flexibilité tout en restant simple d’utilisation. Ce CMS s’adapte à la nature et à la structure de vos données et de votre méthode de travail, et pas l’inverse.
 - Une documentation complète et mise à jour, ainsi qu’une communauté de développeurs et d’utilisateurs des plus serviable et amicale.
 
-Bref, si vous êtes développeur front-end, ExpressionEngine est un excellent CMS vous permettant de réaliser des sites complexes, même sans maîtrise de PHP ou de MySQL. Si êtes développeur, back-end, vous trouverez en ExpressionEngine et en CodeIgniter un framework puissant et extensible.
+Bref, si vous êtes développeur front-end, ExpressionEngine est un excellent CMS vous permettant de réaliser des sites complexes, même sans maîtrise de PHP ou de MySQL. Si vous êtes développeur back-end, vous trouverez en CodeIgniter un framework puissant vous permettant d'étendre les possibilité d'ExpressionEngine.
 
-Si ExpressionEngine n’est pas encore très connu en Europe et en Belgique, il a cependant un [pedigré intéressant en terme de fonctionnalités](http://ellislab.com/expressionengine/features) et [des références de qualité](http://www.hopstudios.com/blog/the_largest_expressionengine_sites/).
+Si ExpressionEngine n’est pas toujours très connu en Europe et en Belgique, il a cependant un [pedigré intéressant en terme de fonctionnalités](http://ellislab.com/expressionengine/features) et [des références de qualité](http://www.hopstudios.com/blog/the_largest_expressionengine_sites/).
 
 ## Definir et structurer vos Contenus
 
@@ -59,7 +59,7 @@ Vous pouvez également [définir des groupes de catégories](http://ellislab.com
 
 ## Stocker vos fichiers
 
-Via le [File Manager](http://ellislab.com/expressionengine/user-guide/cp/content/files/file_manager.html) ExpressionEngine vous offre également une solution pour stocker vos fichiers (PDF, images, fichiers videos, sons, etc.) ailleurs que dans vos channels et vos custom fields.
+Via le [File Manager](http://ellislab.com/expressionengine/user-guide/cp/content/files/file_manager.html) ExpressionEngine vous offre également une solution pour stocker vos fichiers (PDF, images, fichiers videos, sons, etc.).
 
 ### Upload Preferences
 
@@ -87,7 +87,7 @@ Même si le système de membership d’ExpressionEngine est assez complet, il ne
 Par conséquent, si votre site repose sur des fonctionnalités nécessitant des comptes utilisateurs et des options de gestion de ces derniers, quelques add-ons vous simplifieront la vie.
 
 - [User](http://www.solspace.com/software/detail/user/) (Solspace) vous permettra de gérer plus facilement vos membres et les templates y étant liés. A l’aide de cet add-on, mettre en place et intégrer un système de membership et de gestion des profils utilisateurs au sein de votre site est un jeu d’enfant.
-- Si vous avez besoin pour vos fonctionnalités de membership de toute la flexibilité que vous offent les channels, les custom fields, et les templates [Zoo Visitor](http://ee-zoo.com/add-ons/visitor) (EE-Zoo), [Profile:Edit](http://mightybigrobot.com/products/detail/profile-edit) (Mighty Big Robot) et [Safecracker Registration](https://objectivehtml.com/safecracker-registration) (Objective HTML) vous seront utiles. Ces add-ons établissent un pont entre les profils utilisateurs oar défaut et un channel "spécial" stockant les profils des membres.
+- Si vous avez besoin pour vos fonctionnalités de membership de toute la flexibilité que vous offent les channels, les custom fields, et les templates [Zoo Visitor](http://ee-zoo.com/add-ons/visitor) (EE-Zoo), [Profile:Edit](http://mightybigrobot.com/products/detail/profile-edit) (Mighty Big Robot) et [Safecracker Registration](https://objectivehtml.com/safecracker-registration) (Objective HTML) vous seront utiles. Ces add-ons établissent un "pont" entre les profils utilisateurs oar défaut et un channel "spécial" stockant les profils des membres.
 
 ## Templates: afficher vos données
 
@@ -141,7 +141,7 @@ ExpressionEngine possède de nombreux tags et paramètres vous permettant d’af
 
 #### Structure conditionelles et opérateurs
 
-Si vous êtes familiers avec les structure de contrôle en programmation, vous verrez qu’ExpressionEngine vous en donne quelques unes pour gérer vos templates.
+Si vous connaissez les structure de contrôle en programmation, vous verrez qu’ExpressionEngine vous en donne quelques unes pour gérer vos templates.
 
 If simple
 
@@ -195,7 +195,7 @@ Certains éléments de votre site ne vont pas naturellement trouver leur place d
 - **Snippets**: éléments dynamiques pouvant faire appel au contenu des channels ou qui peuvent contenir des tags ExpressionEngine
 - **Embedded templates**: identique aux snippets hormis le fait que des variables peuvent être transmises depuis le template parent au template enfant et utilisées dans ce dernier. Peuvent être nativement utilisé comme des fichiers et des variables peuvent être passées.
 
-Les Embedded templates utilisent plus de ressources que les snippets, qui eux-même en utilisent plus que les global variables. Il est donc important de choisir le bon outil pour le travail à réaliser.
+Les Embedded templates utilisent plus de ressources que les snippets, qui eux-mêmes en utilisent plus que les global variables. Il est donc important de choisir le bon outil pour le travail à réaliser.
 
 #### Global Variables
 
@@ -261,7 +261,7 @@ Voici une liste non exhaustives des conventions que j'applique:
 	- Tout cutom field est préfixé par "cf", les global variables par "gv", les snippets par "sn", etc. Une telle nomenclature augmente grandement la lisibilité des templates
 	- Tout custom field utilise un namespace correspondant au channel auquel il s'applique: "cf_work_img", "cf_blog_summary", "cf_blog_body", etc.
 	
-Vous trouverez un exemple de plan dans le repository.
+Vous trouverez un exemple de plan dans le repository de ce cours.
 
 ### Configuration
 
@@ -301,26 +301,28 @@ Le header et la navigation du site sont gérés au sein d'un embedded template, 
 
 ```html
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
 		<meta charset="utf-8" />
 		<title>{if "{embed:html_title}" != ""}{embed:html_title} - {/if}My Super Website</title>
 		<meta name="description" content="my site is really nice" />
 		<link rel="stylesheet" href="{site_url}/assets/css/screen.css" media="screen" />
 	</head>
 	<body>
-		{!-- Navigation --}
-		<nav>
-			<ul>
-				<li{if "{embed:current_nav}" == "home"} class="current"{/if}><a href="{site_url}">Home</a></li>
-				<li{if "{embed:current_nav}" == "work"} class="current"{/if}><a href="{path='work/index'}">Work</a></li>
-				<li{if "{embed:current_nav}" == "blog"} class="current"{/if}><a href="{path='blog/index'}">Blog</a></li>
-				<li{if "{embed:current_nav}" == "about"} class="current"{/if}><a href="/about">About</a></li>
-			</ul>
-		</nav>
+		<header class="siteheader">
+			{!-- Navigation --}
+			<nav>
+				<ul>
+					<li{if "{embed:current_nav}" == "home"} class="current"{/if}><a href="{site_url}">Home</a></li>
+					<li{if "{embed:current_nav}" == "work"} class="current"{/if}><a href="{path='work/index'}">Work</a></li>
+					<li{if "{embed:current_nav}" == "blog"} class="current"{/if}><a href="{path='blog/index'}">Blog</a></li>
+					<li{if "{embed:current_nav}" == "about"} class="current"{/if}><a href="/about">About</a></li>
+				</ul>
+			</nav>
+		</header>
 ```
 
 **snippets/sn_sitefooter**
@@ -328,15 +330,18 @@ Le header et la navigation du site sont gérés au sein d'un embedded template, 
 Le footer du site est géré uniquement à l'aide d'un snippet. Nous n'avons pas besoin de passer de variables dans ce cas-ci. Un snippet est donc l'outil idéal dans ce cas-ci.
 
 ```
-	<div class="sitefooter">
-		<p>&copy; {current_time format="%Y"} La casa productions</p>
+		<footer class="sitefooter">
+			<p>&copy; {current_time format="%Y"} La casa productions</p>
+		</footer>
 	</body>
 </html>
 ```
 
-** global variables **
+**global variables**
 
-Nous utiliserons les global variables pour stocker tous les petits éléments du site qui doivent être facilement éditables mais ne trouvent pas naturellement leur place dans un channel (intriduction et liste des pages, code google analytics, etc)
+Nous utiliserons les global variables pour stocker tous les petits éléments du site qui doivent être facilement éditables mais ne trouvent pas naturellement leur place dans un channel (intriduction et liste des pages, code google analytics, etc).
+
+[Low Variables](http://gotolow.com/addons/low-variables) vous permet de facilement donner accès à ces global variables à vos utilisateurs, de gérer les permissions et de profiter des custom fields.
 
 #### Homepage
 
@@ -344,63 +349,73 @@ Nous utiliserons les global variables pour stocker tous les petits éléments du
 {!-- embed header --}
 {embed="embeds/.siteheader" html_title="Homepage" current_nav="home"}
 
-		{!-- Global variables for title and intro --}
-		{gv_homepage_title}
-		{gv_homepage_intro}
+	<main>
 
-		<h2>Recent Work</h2>
+		<section>
+			{!-- Global variables for title and intro --}
+			{gv_homepage_title}
+			{gv_homepage_intro}
+		</section>
 
-		{!-- Get latest 3 work entries --}
-		{exp:channel:entries
-			disable="categories|category_fields|member_data|pagination|trackbacks"
-			channel="works"
-			orderby="date"
-			sort="asc"
-			limit="3"
-			dynamic="no"
-		}
-			{if count == 1}<ul class="list-latestworks">{/if}
+		<section>
+			<h2>Recent Work</h2>
+			{!-- Get latest 3 work entries (pay attention to dynamic="no") --}
+			{exp:channel:entries
+				disable="categories|category_fields|member_data|pagination|trackbacks"
+				channel="works"
+				orderby="date"
+				sort="desc"
+				limit="3"
+				dynamic="no"
+			}
+				{if count == 1}<ul class="list-latestworks">{/if}
 
-				<li>
-					<article>
-						<p class="imgholder"><a href="{url_title_path='work/detail'}"><img src="{cf_work_img:small}" alt="{title}" /></a></p>
-						<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
-					</article>
-				</li>
+					<li>
+						<article>
+							<p class="imgholder"><img src="{cf_work_img:small}" alt="{cf_work_imgcaption}" /></p>
+							<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
+						</article>
+					</li>
 
-			{if count == total_results}</ul>{/if}
+				{if count == total_results}</ul>{/if}
 
-			{if no_results}<p>No work found: I have been very lazy lately</p>{/if}
+				{!-- No results --}
+				{if no_results}<p>No work found: I have been very lazy lately</p>{/if}
 
-		{/exp:channel:entries}
+			{/exp:channel:entries}
+		</section>
 
+		<section>
+			<h2>From the blog</h2>
 
-		<h2>From the blog</h2>
+			{!-- Get latest 3 blog entries (pay attention to dynamic="no") --}
+			{exp:channel:entries
+				disable="categories|category_fields|member_data|pagination|trackbacks"
+				channel="blogs"
+				orderby="date"
+				sort="desc"
+				limit="3"
+				dynamic="no"
+			}
+				{if count == 1}<ul class="list-latestblogs">{/if}
 
-		{!-- Get latest 3 blog entries --}
-		{exp:channel:entries
-			disable="categories|category_fields|member_data|pagination|trackbacks"
-			channel="blogs"
-			orderby="date"
-			sort="asc"
-			limit="3"
-			dynamic="no"
-		}
-			{if count == 1}<ul class="list-latestblogs">{/if}
+					<li>
+						<article>
+							<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%F %d, %Y"}</time></p>
+							<h3 class="title-item"><a href="{url_title_path='blog/detail'}">{title}</a></h3>
+							{exp:eehive_hacksaw chars="255" append="&nbsp;&hellip;"}{cf_blog_summary}{/exp:eehive_hacksaw}
+						</article>
+					</li>
 
-				<li>
-					<article>
-						<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%M %d, %Y"}</time></p>
-						<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
-						{cf_blog_summary}
-					</article>
-				</li>
+				{if count == total_results}</ul>{/if}
 
-			{if count == total_results}</ul>{/if}
+				{!-- No results --}
+				{if no_results}<p>No blogpost found: I should write more often</p>{/if}
 
-			{if no_results}<p>No blogpost found: I guess I didn't write anything</p>{/if}
+			{/exp:channel:entries}
+		</section>
 
-		{/exp:channel:entries}
+	</main>
 
 {!-- footer as snippet --}
 {sn_sitefooter}
@@ -408,13 +423,279 @@ Nous utiliserons les global variables pour stocker tous les petits éléments du
 
 #### Blog: archive et catégories
 
+```html
+{!-- embed header --}
+{embed="embeds/.siteheader" html_title="My Blog" current_nav="blog"}
+
+	{!-- 404 (using Mo Variables [http://devot-ee.com/add-ons/mo-variables] for the paginated and not paginated conditionals) --}
+	{if not_paginated AND segment_2 != "" AND segment_2 != "category"}{redirect="404"}{/if}
+
+	<main>
+		{!-- Global variables for title and intro --}
+		{gv_blog_title}
+		{gv_blog_intro}
+
+		{!-- Paginate blog entries --}
+		{exp:channel:entries
+			disable="categories|category_fields|member_data|trackbacks"
+			channel="blogs"
+			orderby="date"
+			sort="desc"
+			limit="5"
+			paginate="bottom"
+		}
+			{if count == 1}<ul class="list-allblogposts">{/if}
+
+				<li>
+					<article>
+						<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%F %d, %Y"}</time></p>
+						<h3 class="title-item"><a href="{url_title_path='blog/post'}">{title}</a></h3>
+						{exp:eehive_hacksaw chars="255" append="&nbsp;&hellip;"}{cf_blog_summary}{/exp:eehive_hacksaw}
+					</article>
+				</li>
+
+			{if count == total_results}</ul>{/if}
+
+			{!-- No results --}
+			{if no_results}<p>No blogpost found: I should write more</p>{/if}
+
+			{!-- Pagination --}
+			{paginate}
+				{pagination_links}
+					<ul>
+						{previous_page}<li><a href="{pagination_url}">Previous Page</a></li>{/previous_page}
+						{page}<li{if current_page} class="active"{/if}><a href="{pagination_url}">{pagination_page_number}</a></li>{/page}
+						{next_page}<li><a href="{pagination_url}">Next Page</a></li>{/next_page}
+					</ul>
+				{/pagination_links}
+			{/paginate}
+
+		{/exp:channel:entries}
+
+		{!-- list categories--}
+		{exp:channel:categories channel="blogs" show_empty="no" style="linear"}
+			{if count == 1}
+				<ul class="list-categories">
+				<li{if "{segment_2}" != "category"} class="current"{/if}><a href="/blog">All categories</a></li>
+			{/if}
+    			<li{if active} class="current"{/if}><a href="{path='blog/index'}">{category_name}</a></li>
+			{if count == total_results}</ul>{/if}
+		{/exp:channel:categories}
+
+	</main>
+
+{!-- footer as snippet --}
+{sn_sitefooter}
+```
+
 #### Blog: page de détail
 
-#### Portfolio: list page
+```html
+{exp:channel:entries
+	disable="category_fields|member_data|pagination|trackbacks"
+	channel="blogs"
+	limit="1"
+	paginate="bottom"
+	require_entry="yes"
+}
 
-#### Portfolio: detail page
+	{!-- 404 --}
+	{if no_results}{redirect="404"}{/if}
+
+	{!-- embed header --}
+	{embed="embeds/.siteheader" html_title="{title}" current_nav="blog"}
+
+		<main>
+
+			<h1>{title}</h1>
+			<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%F %d, %Y"}</time></p>
+
+			<div class="item-intro">
+				{cf_blog_summary}
+			</div>
+
+			{cf_blog_body}
+
+			<p class="meta-info">Posted in {categories backspace="2"}<a href="{path='blog/index'}">{category_name}</a>, {/categories}</p>
+
+			{!-- related blog posts using the relationship field--}
+			{cf_blog_related}
+				{if cf_blog_related:count == 1}<h2>Related entries</h2><ul>{/if}
+					<li><a href="{path='blog/post'}/{cf_blog_related:url_title}">{cf_blog_related:title}</a></li>
+				{if cf_blog_related:count == cf_blog_related:total_results}</ul>{/if}
+			{/cf_blog_related}
+
+		</main>
+
+	{!-- footer as snippet --}
+	{sn_sitefooter}
+
+{/exp:channel:entries}
+```
+
+#### Work: list page
+
+```html
+{!-- embed header --}
+{embed="embeds/.siteheader" html_title="Recent Work" current_nav="work"}
+
+	{!-- 404 (using Mo Variables [http://devot-ee.com/add-ons/mo-variables] for the paginated and not paginated conditionals) --}
+	{if not_paginated AND segment_2 != "" AND segment_2 != "category"}{redirect="404"}{/if}
+
+	<main>
+		{!-- Global variables for title and intro --}
+		{gv_works_title}
+		{gv_works_intro}
+
+		{!-- Paginate work entries --}
+		{exp:channel:entries
+			disable="categories|category_fields|member_data|trackbacks"
+			channel="works"
+			orderby="date"
+			sort="desc"
+			limit="5"
+			paginate="bottom"
+		}
+			{if count == 1}<ul class="list-latestworks">{/if}
+
+				<li>
+					<article>
+						<p class="imgholder"><img src="{cf_work_img:small}" alt="{cf_work_imgcaption}" /></p>
+						<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
+					</article>
+				</li>
+
+			{if count == total_results}</ul>{/if}
+
+			{!-- No results --}
+			{if no_results}<p>No work found: I have been very lazy lately</p>{/if}
+
+			{!-- Pagination --}
+			{paginate}
+				{pagination_links}
+					<ul>
+						{previous_page}<li><a href="{pagination_url}">Previous Page</a></li>{/previous_page}
+						{page}<li{if current_page} class="active"{/if}><a href="{pagination_url}">{pagination_page_number}</a></li>{/page}
+						{next_page}<li><a href="{pagination_url}">Next Page</a></li>{/next_page}
+					</ul>
+				{/pagination_links}
+			{/paginate}
+
+		{/exp:channel:entries}
+
+		{!-- list categories--}
+		{exp:channel:categories channel="works" show_empty="no" style="linear"}
+			{if count == 1}
+				<ul class="list-categories">
+				<li{if "{segment_2}" != "category"} class="current"{/if}><a href="/work">All categories</a></li>
+			{/if}
+    			<li{if active} class="current"{/if}><a href="{path='work/index'}">{category_name}</a></li>
+			{if count == total_results}</ul>{/if}
+		{/exp:channel:categories}
+
+	</main>
+
+{!-- footer as snippet --}
+{sn_sitefooter}
+```
+
+#### Work: detail page
+
+```html
+{exp:channel:entries
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+	channel="works"
+	limit="1"
+	paginate="bottom"
+	require_entry="yes"
+}
+
+	{!-- 404 --}
+	{if no_results}{redirect="404"}{/if}
+
+	{!-- embed header --}
+	{embed="embeds/.siteheader" html_title="{title}" current_nav="work"}
+
+		<main>
+			<figure>
+				<img src="{cf_work_img:big}" alt="{cf_work_imgcaption}" />
+				<figcaption>{cf_work_imgcaption}</figcaption>
+			</figure>
+			<h1>{title}</h1>
+			{cf_work_summary}
+
+			{if "{cf_work_url}" != ""}
+				<p><a href="{cf_work_url}" class="btn">View Website</a></p>
+			{/if}
+		</main>
+
+	{!-- footer as snippet --}
+	{sn_sitefooter}
+
+{/exp:channel:entries}
+```
 
 #### About: page unique avec le module de pages
+
+```html
+{!-- Uing the page module for this template --}
+{exp:channel:entries
+	disable="categories|category_fields|member_data|pagination|trackbacks"
+	channel="pages"
+	limit="1"
+	paginate="bottom"
+	require_entry="yes"
+}
+
+	{!-- 404 --}
+	{if no_results}{redirect="404"}{/if}
+
+	{!-- embed header --}
+	{embed="embeds/.siteheader" html_title="{title}" current_nav="about"}
+
+		<main>
+
+			<h1>{title}</h1>
+			{cf_page_body}
+
+		</main>
+
+	{!-- footer as snippet --}
+	{sn_sitefooter}
+
+{/exp:channel:entries}
+```
+
+#### RSS pour le blog
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+      <title>RSS - Blogposts - My awesome site</title>
+      <link>{site_url}</link>
+      <description>description for my awesome site</description>
+      <language>en-uk</language>
+      <atom:link href="{path='blog/rss'}" rel="self" type="application/rss+xml" />
+      <pubDate>{current_time format="{DATE_RSS}"}</pubDate>
+      <lastBuildDate>{current_time format="{DATE_RSS}"}</lastBuildDate>
+      <managingEditor>webmaster@mysite.com</managingEditor>
+      <webMaster>webmaster@mysite.com</webMaster>
+
+      {exp:channel:entries channel="blogs" disable="category_fields|member_data|pagination|trackbacks" status="not closed" orderby="date" sort="desc" limit="10"}
+         <item>
+            <title><![CDATA[{title}]]></title>
+            <pubDate>{entry_date format="{DATE_RSS}"}</pubDate>
+            <description><![CDATA[<p>{cf_blog_summary}</p>]]></description>
+            {categories}<category><![CDATA[{category_name}]]></category>{/categories}
+            <link>{url_title_path="blog/index"}</link>
+            <guid>{url_title_path="blog/index"}</guid>
+         </item>
+      {/exp:channel:entries}
+
+   </channel>
+</rss>
+``
 
 ## Pour aller plus loin
 
@@ -434,7 +715,7 @@ Voici [quelques](http://jamieonsoftware.com/post/59689619654/getting-to-know-exp
 
 [Chanel Form](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_form/) permet de créer des formulaires pour éditer ou publier des entries sans passer par votre control panel, directement depuis le front-end de votre site.
 
-Chennel form est compatible avec de nombreux custom fields parmi les plus populaires et vous permet de créer de véritables petites applications en ligne à l’aide d’ExpressionEngine.
+Channel form est compatible avec de nombreux custom fields parmi les plus populaires et vous permet de créer de véritables petites applications en ligne à l’aide d’ExpressionEngine.
 
 ### Add-ons
 
@@ -444,13 +725,13 @@ De nombreux add-ons gratuits ou payants vous permettent d’augmenter les capaci
 
 [Devot-ee](http://devot-ee.com/) répertorie aujourd’hui autour de 2000 add-ons pour ExpressionEngine.
 
-La communcauté comporte pas mal de développeurs reconnus pour leur travail et offrant un support utilisateur de qualité: Solspace, EE garage (Leevi Graham), Pixelandtonic (Brandon Kelly & Brad Bell and Andris Ševčenko), Go to Low (Lodewijk Schutte), Mark Croxton, Mighty Big Robot, EE-Zoo, Dev Demon, etc.
+La communauté regorge de développeurs reconnus pour leur travail et offrant un support utilisateur de qualité: [Solspace](http://www.solspace.com/), [EE garage](http://ee-garage.com/) (Leevi Graham & Newism team), [Pixelandtonic](http://pixelandtonic.com/ee) (Brandon Kelly, Brad Bell and Andris Ševčenko), [Go to Low](http://gotolow.com/) (Lodewijk Schutte), [Mark "the" Croxton](http://devot-ee.com/developers/mark-croxton), [Mighty Big Robot](http://mightybigrobot.com/products), [EE-Zoo](http://ee-zoo.com/), [Dev Demon](http://www.devdemon.com/), etc.
 
 #### Développer vos propres add-ons
 
 Si vous souhaitez développer vous même vos propres add-ons, [EllisLab vous propose des instructions détaillés pour ce faire](http://ellislab.com/expressionengine/user-guide/development/).
 
-ExpressionEngine étant développé sur base du framwork MVC open source qu’est [CodeIgniter](http://ellislab.com/codeigniter), les ressources de ce framework sont disponibles et vous permettent de développer des add-ons relativement complexes en en temps record.
+ExpressionEngine étant développé sur base du framwork MVC open source qu’est [CodeIgniter](http://ellislab.com/codeigniter), les ressources de ce framework sont disponibles et vous permettent de développer des add-ons permettant d'étendre les capacités du système.
 
 ## Resources
 
@@ -458,11 +739,12 @@ Les [screencasts de Mijingo consacrés à ExpressionEngine](http://mijingo.com/p
 
 Si vous préférez quelques tutoriels en ligne pour vous lancer, Mike Boyink de Train-ee vous en propose [quelques-uns en accès gratuit sur son site](http://www.train-ee.com/courseware/free-tutorials). Les ressources payantes valent également la peine.
 
-[Getting Started with ExpressionEngine 2](http://vimeo.com/41789424) par Ellislab
-
+- ["ExpressionEngine USer Guide"](http://ellislab.com/expressionengine/user-guide/): la documentation d'ExpressionEngine par EllisLab.
+- ["ExpressionEngine Quick Reference"](http://ellislab.com/expressionengine/user-guide/general/quick_reference.html): bonne cheat sheet par EllisLab.
 - [Devot-ee](http://devot-ee.com/): le site de référence en matière d’add-ons pour ExpressionEngine
 - [Show-ee](http://www.show-ee.com/): un site sur lequel vous pourrez trouver de nombreux sites réalisés à l’aide d’ExpressionEngine
 - [EE-Insider](http://eeinsider.com/): la référence en ce qui concerne les news de la communauté
 - [Le blog officiel d’EllisLab](http://ellislab.com/blog): de nombreux articles sont consacrés à ExpressionEngine.
 - [ExpressionEngine conference](http://www.expressionengineconference.com/): Les conférences annuelles consacrées à ExpressionEngine
 - [Vidéos de certains talks à EECI](http://vimeo.com/whoooz) mises à votre disposition par Inspire Conférence et Robert Eerhart
+- ["Guide to 4040 Pages with ExpressionEngine"](http://joviawebstudio.com/index_ee.php/blog/guide_to_404_pages_with_expressionengine/): par Ryan Battles
