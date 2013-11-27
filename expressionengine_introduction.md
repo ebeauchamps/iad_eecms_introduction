@@ -329,7 +329,7 @@ Le header et la navigation du site sont gérés au sein d'un embedded template, 
 
 Le footer du site est géré uniquement à l'aide d'un snippet. Nous n'avons pas besoin de passer de variables dans ce cas-ci. Un snippet est donc l'outil idéal dans ce cas-ci.
 
-```
+```html
 		<footer class="sitefooter">
 			<p>&copy; {current_time format="%Y"} La casa productions</p>
 		</footer>
@@ -695,7 +695,7 @@ Nous utiliserons les global variables pour stocker tous les petits éléments du
 
    </channel>
 </rss>
-``
+```
 
 ## Pour aller plus loin
 
