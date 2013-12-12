@@ -1,5 +1,7 @@
 # Cours IAD: Introduction à ExpressionEngine
 
-Les syllabi des cours donnés par Jérôme Coupé à l'IAD. Ils sont mis à jour en continu.
+[ExpressionEngine](http://www.ellislab.com/expressionengine) est un CMS flexible développé par [EllisLab](http://www.ellislab.com/) et basé sur PHP et MySQL.
 
-Les cours encore au format .pdf seront mis en ligne petit à petit sur Github
+Syllabus du cours donné à l'Institut des Arts de Diffusion par Jérôme Coupé.
+
+Licence: [Creative Commons Attribution 4.0 International license](http://creativecommons.org/licenses/by/4.0/)
