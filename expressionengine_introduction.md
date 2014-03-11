@@ -116,9 +116,21 @@ Les tags ci-après sont les plus utilisés pour créer des liens entre des pages
 
 Attention, les templates d’index dans les divers template groups n’apparaissent pas dans les structure d’URL.
 
-Expressionenigne fait passer toutes les requêtes http par un fichier index.php qui apparait donc dans toutes les URL. Le module Mod Rewrite et des fichiers .htaccess peuvent êtres utilisés pour retirer la mention de ce fichier des URL.
+#### Supprimer index.php des URLs
 
-### Tags
+Expressionenigne fait passer toutes les requêtes http par un fichier index.php qui apparait donc dans toutes les URL.
+
+Le module Apache Mod Rewrite et des fichiers '.htaccess' peuvent êtres utilisés pour retirer la mention de ce fichier des URL. [Voici un guide détaillé par EllisLab](http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html).
+
+#### Template routes
+
+Les [templates routes](http://ellislab.com/expressionengine/user-guide/urls/template_routes.html), disponibles à partir de la version 2.8 permettent de passer outre cette configuration des URLs par défaut.
+
+Chaque template peut ainsi se voir assigné une URL particulière. Ces URL peuvent également contenir des variables qui peuvent dès lors être utilisées dans vos templates, tout comme les variables de segments plus classiques.
+
+Chaque route peut être composée de segments définis par des variables et dont la syntaxe peut être spécifiée à l'aide de règles simples ou d'expressions régulières.
+
+### Tags / balises
 
 ExpressionEngine possède de nombreux tags et paramètres vous permettant d’afficher vos données et de réaliser certains tests et traitement de celles-ci avant affichage. Nous nous contenterons ici d’examiner les plus utilisés: les entry loops et les structures de contrôle ou tags conditionnels.
 
@@ -194,6 +206,7 @@ Certains éléments de votre site ne vont pas naturellement trouver leur place d
 - **Global variables**: éléments statiques ne devant pas faire appel au contenu de vos channels ni contenir de tags ExpressionEngine.
 - **Snippets**: éléments dynamiques pouvant faire appel au contenu des channels ou qui peuvent contenir des tags ExpressionEngine
 - **Embedded templates**: identique aux snippets hormis le fait que des variables peuvent être transmises depuis le template parent au template enfant et utilisées dans ce dernier. Peuvent être nativement utilisé comme des fichiers et des variables peuvent être passées.
+- **Template Layouts**: disponibles nativement à partir de la version 2.8, les templates layouts sont une manière de créer de l'héritage de templates dans ExpressionEngine. Les templates layouts sont assez semblables aux embeds mais permettent d'en réduire le nombre et de passer d'un paradigme d'includes à un paradigme de template parent et enfants avec héritage.
 
 Les Embedded templates utilisent plus de ressources que les snippets, qui eux-mêmes en utilisent plus que les global variables. Il est donc important de choisir le bon outil pour le travail à réaliser.
 
@@ -231,6 +244,92 @@ Certains templates peuvent être imbriqués dans d’autres templates: c’est c
 	{/exp:channel:entries}
 
 {/if}
+```
+
+#### Template layouts
+
+Comme dit plus haut, cette fonctionnalité permet de passer à un nouveau paradigme en terme de templating avec ExpressionEngine: l'héritage de template.
+
+Le concept est assez simple à comprendre. Nous avons un template "parent" dans lequel viennent se placer les templates enfants. C'est l'inverse du paradigme d'embedded templates qui était le seul dont nous disposions avant la version 2.8.0.
+
+Voici un exemple simple:
+
+**Template parent:**: n'est jamais affiché directement
+
+```
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>My HTML Title</title>
+		<meta name="description" content="My awesome description" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		{layout:contents}
+	</body>
+</html>
+```
+
+**Template enfant**: appelle le template parent
+
+```
+{layout="layouts/_page"}
+
+<p>Hello World</p>
+```
+
+Le template enfant, servi par le CMS lorsque le navigateur l'affiche, va appeller le template parent et le contenu du telplate enfant va s'afficher en lieu et place du tag {layout:contents}
+
+Bien entendu, cette technique n'est utile que si il est possible de passer des variables depuis le template enfant vers le template parent. Ces variables peuvent soit être passées via le tag {layout} lui même, soit via un tag {layout:set}. Cette dernière syntaxe offre bien plus de flexibilité et est à privilégier.
+
+**Template enfant**
+
+```
+{layout="layouts/_page" htmlTitle="New HTML Title"}
+
+<p>Hello World</p>
+```
+
+ou
+
+```
+{layout="layouts/_page"}
+{layout:set name="htmlTitle" value="New HTML Title"}
+
+<p>Hello World</p>
+```
+
+**Template parent:**
+
+```
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>{if layout:htmlTitle != ""}{layout:htmlTitle}{if:else}Default title{/if}</title>
+		<meta name="description" content="My description" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		{layout:contents}
+	</body>
+</html>
+```
+
+Il est à noter que les valeurs passées ne sont pas limitées à des chaînes de caractères. Vous pouvez passer des blocs de code entiers.
+
+```
+{layout:set name="js"}
+    <script src="/d3.js"></script>
+    <script src="/awesome-visual.js"></script>
+{/layout:set}
 ```
 
 ## Créer un portfolio et un blog
