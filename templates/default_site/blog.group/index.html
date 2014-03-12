@@ -1,0 +1,68 @@
+{!-- layout used --}
+{layout="layouts/_page"}
+
+{!-- passing variables to layout template --}
+{layout:set name="htmlTitle" value="Blog archive"}
+{layout:set name="currentNav" value="blog"}
+
+<h1 class="title-page">{gv_bloglist_title}</h1>
+<p class="intro">{gv_bloglist_intro}</p>
+
+{exp:channel:entries channel="blogs" orderby="date" sort="desc" limit="5" disable="member_data|trackbacks" pagination="bottom"}
+
+	{!-- list entries --}
+	{if count == 1}<ul>{/if}
+
+		<li>
+			<article>
+				<h2><a href="{url_title_path='blog/post'}">{title}</a></h2>
+				<p class="meta-info"><time datetime="{entry_date format="%Y-%m-%d"}">{entry_date format="%F %j, %Y"}</time> in {categories backspace="2"}<a href="{path='blog/index'}">{category_name}</a>, {/categories}</p>
+				<p>{cf_blog_summary}</p>
+			</article>
+		</li>
+
+	{if count == total_results}</ul>{/if}
+
+	{!-- no results --}
+	{if no_results}<p>No blogposts found</p>{/if}
+
+	{!-- pagination --}
+	{paginate}
+		{pagination_links}
+			<ul class="pagination">
+				{first_page}
+					<li><a href="{pagination_url}" class="pagination__first">First Page</a></li>
+				{/first_page}
+
+				{previous_page}
+					<li><a href="{pagination_url}" class="pagination__previous">Previous Page</a></li>
+				{/previous_page}
+
+				{page}
+					<li><a href="{pagination_url}" class="pagination__page {if current_page}pagination__page--current{/if}">{pagination_page_number}</a></li>
+				{/page}
+
+				{next_page}
+					<li><a href="{pagination_url}" class="pagination__next">Next Page</a></li>
+				{/next_page}
+
+				{last_page}
+					<li><a href="{pagination_url}" class="pagination__last">Last Page</a></li>
+				{/last_page}
+			</ul>
+		{/pagination_links}
+	{/paginate}
+
+{/exp:channel:entries}
+
+<h2>Categories</h2>
+{exp:channel:categories channel="blogs" category_group="1" show_empty="no" style="linear"}
+
+    {if count == 1}<ul class="categories">{/if}
+    {if count == 1}<li><a href="{site_url}/blog/index">All categories</a></li>{/if}
+
+		<li class="categories__item{if active} categories__item--current{/if}"><a href="{path='blog/index'}">{category_name}</a></li>
+
+	{if count == total_results}</ul>{/if}
+
+{/exp:channel:categories}

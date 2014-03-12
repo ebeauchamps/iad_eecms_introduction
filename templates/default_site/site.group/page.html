@@ -1,0 +1,22 @@
+{layout="layouts/_page"}
+
+{!-- passing vars to layout template --}
+{layout:set name="currentNav" value="about"}
+
+{exp:channel:entries channel="pages" limit="1" disable="categories|category_fields|member_data|trackbacks" require_entry="yes"}
+
+	{if no_results}{redirect="404"}{/if}
+
+	{!-- passing vars to layout template --}
+	{layout:set name="htmlTitle" value="{title}"}
+
+	{!-- page content --}
+	<h1>{title}</h1>
+
+	<div class="intro">
+		{cf_page_intro}
+	</div>
+
+	{cf_page_body}
+
+{/exp:channel:entries}

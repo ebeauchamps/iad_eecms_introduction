@@ -1,0 +1,34 @@
+{!-- layout used --}
+{layout="layouts/_page"}
+
+{!-- passing vars to layout --}
+{layout:set name="currentNav" value="work"}
+
+{exp:channel:entries channel="works" limit="1" disable="categories|category_fields|member_data|trackbacks" require_entry="yes"}
+
+	{!-- strict URLs and 404 --}
+	{if no_results}{redirect="404"}{/if}
+
+	{!-- passing vars to layout --}
+	{layout:set name="htmlTitle" value="Work - {title}"}
+
+	<h1>{title}</h1>
+	<p class="meta-info"><time datetime="{entry_date format="%Y-%m-%d"}">{entry_date format="%F %j, %Y"}</time></p>
+	<p class="imgholder"><img src="{cf_work_img:mediumthumb}" alt="{cf_work_imgcaption}" /></p>
+	<p>{cf_work_summary}</p>
+	{cf_work_body}
+
+	{!-- work gallery --}
+	{cf_work_gallery}
+
+		{if cf_work_gallery:count == 1}
+			<h2>Gallery ({cf_work_gallery:total_rows})</h2>
+			<ul class="gallery">
+		{/if}
+			<li class="gallery__item"><a href="{cf_work_gallery:gd_screenshot}"><img src="{cf_work_gallery:gd_screenshot:smallthumb}" alt="{cf_work_gallery:gd_caption}" /></li>
+		{if cf_work_gallery:count == cf_work_gallery:total_rows}</ul>{/if}
+
+	{/cf_work_gallery}
+
+
+{/exp:channel:entries}

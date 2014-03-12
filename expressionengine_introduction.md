@@ -254,7 +254,7 @@ Le concept est assez simple à comprendre. Nous avons un template "parent" dans 
 
 Voici un exemple simple:
 
-**Template parent:**: n'est jamais affiché directement
+**Template parent:** (n'est jamais affiché directement)
 
 ```
 <!DOCTYPE html>
@@ -274,7 +274,7 @@ Voici un exemple simple:
 </html>
 ```
 
-**Template enfant**: appelle le template parent
+**Template enfant** (appelle le template parent)
 
 ```
 {layout="layouts/_page"}
@@ -374,7 +374,7 @@ Sur des serveurs UNIX / Apache, [EllisLab fourni une marche à suivre pour suppr
 
 Lorsque vous mettez en place un site ExpressionEngine, il convient de faire les choses dans un certain ordre pour être efficace. Voici la procédure standard à suivre pour gagner du temps:
 
-1. **Installer vos add-ons**: Certains add-ons interagissent avec les members, les fichiers et les channels. Il est donc préférable de les installer dès le début.
+1. **Installer vos add-ons**: Certains add-ons interagissent avec les members, les fichiers et les channels. Il est donc préférable de les installer dès le début. Nous installerons developper et quicksave.
 
 2. **Mettre en place vos Member Groups**: Vous devrez certainement utiliser ces member groups dans les étapes suivantes. Typiquement, vous aurez un groupe pour les super-admins (le client en est généralement exclu) et un groupe pour les administrateurs de contenu. Certains autres groupes peuvent également être créés dans le cadre de certains projets. Vous devrez revenir aux Member Groups par la suite, mais mettez déjà en place ce dont vous avez besoin.
 
@@ -392,49 +392,15 @@ Lorsque vous mettez en place un site ExpressionEngine, il convient de faire les 
 
 ### Création des templates
 
-##### Embeds, snippets et global variables
+##### Embeds, snippets, layouts et global variables
 
-**embeds/.siteheader**
+**layouts/_page**
 
-Le header et la navigation du site sont gérés au sein d'un embedded template, ce qui nous permettra de passer diverses variables qui changeront suivant le template affiché: valeur du tag `<title>`, navigation courante, etc.
+Nous allons ici travailler avec les template layouts, disponibles à partir de la version 2.8 d'ExpressionEngine. Nous aurons donc un layout "parent" contenant le header (et la navigation), ainsi que le footer du site.
 
-```html
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-	<head>
-		<meta charset="utf-8" />
-		<title>{if "{embed:html_title}" != ""}{embed:html_title} - {/if}My Super Website</title>
-		<meta name="description" content="my site is really nice" />
-		<link rel="stylesheet" href="{site_url}/assets/css/screen.css" media="screen" />
-	</head>
-	<body>
-		<header class="siteheader">
-			{!-- Navigation --}
-			<nav>
-				<ul>
-					<li{if "{embed:current_nav}" == "home"} class="current"{/if}><a href="{site_url}">Home</a></li>
-					<li{if "{embed:current_nav}" == "work"} class="current"{/if}><a href="{path='work/index'}">Work</a></li>
-					<li{if "{embed:current_nav}" == "blog"} class="current"{/if}><a href="{path='blog/index'}">Blog</a></li>
-					<li{if "{embed:current_nav}" == "about"} class="current"{/if}><a href="/about">About</a></li>
-				</ul>
-			</nav>
-		</header>
-```
+Chaque template enfant définira les contenus de la page, ainsi que quelques variables utiles: contenu de la balise `<title>`, navigation courante, etc.
 
-**snippets/sn_sitefooter**
-
-Le footer du site est géré uniquement à l'aide d'un snippet. Nous n'avons pas besoin de passer de variables dans ce cas-ci. Un snippet est donc l'outil idéal dans ce cas-ci.
-
-```html
-		<footer class="sitefooter">
-			<p>&copy; {current_time format="%Y"} La casa productions</p>
-		</footer>
-	</body>
-</html>
-```
+Auparavant, nous aurions été contraints de gérer le header et le footer à l'aide d'un embed (header) et d'un snippet (footer) inclus dans chaque template.
 
 **global variables**
 
@@ -444,357 +410,51 @@ Nous utiliserons les global variables pour stocker tous les petits éléments du
 
 #### Homepage
 
-```html
-{!-- embed header --}
-{embed="embeds/.siteheader" html_title="Homepage" current_nav="home"}
+Ce template contient simplement:
 
-	<main>
+- Un titre et une introduction pour la page
+- Une liste des 3 dernier blog posts
+- Une liste des deux derniers travaux.
 
-		<section>
-			{!-- Global variables for title and intro --}
-			{gv_homepage_title}
-			{gv_homepage_intro}
-		</section>
+C'est une page assez simple à réaliser. Attention au paramètre `dynamic="no"` dans vos tags `{exp:channel:entries}`.
 
-		<section>
-			<h2>Recent Work</h2>
-			{!-- Get latest 3 work entries (pay attention to dynamic="no") --}
-			{exp:channel:entries
-				disable="categories|category_fields|member_data|pagination|trackbacks"
-				channel="works"
-				orderby="date"
-				sort="desc"
-				limit="3"
-				dynamic="no"
-			}
-				{if count == 1}<ul class="list-latestworks">{/if}
+**Exercice**: créer le template pour la homepage.
 
-					<li>
-						<article>
-							<p class="imgholder"><img src="{cf_work_img:small}" alt="{cf_work_imgcaption}" /></p>
-							<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
-						</article>
-					</li>
+#### Blog: page de liste
 
-				{if count == total_results}</ul>{/if}
+Outre un titre et une introduction, ce template contient une liste paginée des derniers posts, ainsi qu'une liste cliquable des catégories permettant de filtrer la liste des posts. Prévoir et tester une interface de pagination détaillée.
 
-				{!-- No results --}
-				{if no_results}<p>No work found: I have been very lazy lately</p>{/if}
-
-			{/exp:channel:entries}
-		</section>
-
-		<section>
-			<h2>From the blog</h2>
-
-			{!-- Get latest 3 blog entries (pay attention to dynamic="no") --}
-			{exp:channel:entries
-				disable="categories|category_fields|member_data|pagination|trackbacks"
-				channel="blogs"
-				orderby="date"
-				sort="desc"
-				limit="3"
-				dynamic="no"
-			}
-				{if count == 1}<ul class="list-latestblogs">{/if}
-
-					<li>
-						<article>
-							<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%F %d, %Y"}</time></p>
-							<h3 class="title-item"><a href="{url_title_path='blog/detail'}">{title}</a></h3>
-							{exp:eehive_hacksaw chars="255" append="&nbsp;&hellip;"}{cf_blog_summary}{/exp:eehive_hacksaw}
-						</article>
-					</li>
-
-				{if count == total_results}</ul>{/if}
-
-				{!-- No results --}
-				{if no_results}<p>No blogpost found: I should write more often</p>{/if}
-
-			{/exp:channel:entries}
-		</section>
-
-	</main>
-
-{!-- footer as snippet --}
-{sn_sitefooter}
-```
-
-#### Blog: archive et catégories
-
-```html
-{!-- embed header --}
-{embed="embeds/.siteheader" html_title="My Blog" current_nav="blog"}
-
-	{!-- 404 (using Mo Variables [http://devot-ee.com/add-ons/mo-variables] for the paginated and not paginated conditionals) --}
-	{if not_paginated AND segment_2 != "" AND segment_2 != "category"}{redirect="404"}{/if}
-
-	<main>
-		{!-- Global variables for title and intro --}
-		{gv_blog_title}
-		{gv_blog_intro}
-
-		{!-- Paginate blog entries --}
-		{exp:channel:entries
-			disable="categories|category_fields|member_data|trackbacks"
-			channel="blogs"
-			orderby="date"
-			sort="desc"
-			limit="5"
-			paginate="bottom"
-		}
-			{if count == 1}<ul class="list-allblogposts">{/if}
-
-				<li>
-					<article>
-						<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%F %d, %Y"}</time></p>
-						<h3 class="title-item"><a href="{url_title_path='blog/post'}">{title}</a></h3>
-						{exp:eehive_hacksaw chars="255" append="&nbsp;&hellip;"}{cf_blog_summary}{/exp:eehive_hacksaw}
-					</article>
-				</li>
-
-			{if count == total_results}</ul>{/if}
-
-			{!-- No results --}
-			{if no_results}<p>No blogpost found: I should write more</p>{/if}
-
-			{!-- Pagination --}
-			{paginate}
-				{pagination_links}
-					<ul>
-						{previous_page}<li><a href="{pagination_url}">Previous Page</a></li>{/previous_page}
-						{page}<li{if current_page} class="active"{/if}><a href="{pagination_url}">{pagination_page_number}</a></li>{/page}
-						{next_page}<li><a href="{pagination_url}">Next Page</a></li>{/next_page}
-					</ul>
-				{/pagination_links}
-			{/paginate}
-
-		{/exp:channel:entries}
-
-		{!-- list categories--}
-		{exp:channel:categories channel="blogs" show_empty="no" style="linear"}
-			{if count == 1}
-				<ul class="list-categories">
-				<li{if "{segment_2}" != "category"} class="current"{/if}><a href="/blog">All categories</a></li>
-			{/if}
-    			<li{if active} class="current"{/if}><a href="{path='blog/index'}">{category_name}</a></li>
-			{if count == total_results}</ul>{/if}
-		{/exp:channel:categories}
-
-	</main>
-
-{!-- footer as snippet --}
-{sn_sitefooter}
-```
+**Exercice**: créer le template de liste pour le blog.
 
 #### Blog: page de détail
 
-```html
-{exp:channel:entries
-	disable="category_fields|member_data|pagination|trackbacks"
-	channel="blogs"
-	limit="1"
-	paginate="bottom"
-	require_entry="yes"
-}
+Ce template affiche l'ensemble des champs définis pour les entries de type blog. La seule "difficulté" dans cette page consiste à réaliser une redirection vers la page 404 si une entrée n'est pas trouvée.
 
-	{!-- 404 --}
-	{if no_results}{redirect="404"}{/if}
-
-	{!-- embed header --}
-	{embed="embeds/.siteheader" html_title="{title}" current_nav="blog"}
-
-		<main>
-
-			<h1>{title}</h1>
-			<p class="meta-info"><time datetime="{entry_date format='%Y-%m-%d'}">{entry_date format="%F %d, %Y"}</time></p>
-
-			<div class="item-intro">
-				{cf_blog_summary}
-			</div>
-
-			{cf_blog_body}
-
-			<p class="meta-info">Posted in {categories backspace="2"}<a href="{path='blog/index'}">{category_name}</a>, {/categories}</p>
-
-			{!-- related blog posts using the relationship field--}
-			{cf_blog_related}
-				{if cf_blog_related:count == 1}<h2>Related entries</h2><ul>{/if}
-					<li><a href="{path='blog/post'}/{cf_blog_related:url_title}">{cf_blog_related:title}</a></li>
-				{if cf_blog_related:count == cf_blog_related:total_results}</ul>{/if}
-			{/cf_blog_related}
-
-		</main>
-
-	{!-- footer as snippet --}
-	{sn_sitefooter}
-
-{/exp:channel:entries}
-```
+**Exercice**: créer le template de détail pour les blogposts.
 
 #### Work: list page
 
-```html
-{!-- embed header --}
-{embed="embeds/.siteheader" html_title="Recent Work" current_nav="work"}
+Outre un titre et une introduction, cette page contient une liste paginée des dernières entries. Prévoir et tester une interface de pagination détaillée.
 
-	{!-- 404 (using Mo Variables [http://devot-ee.com/add-ons/mo-variables] for the paginated and not paginated conditionals) --}
-	{if not_paginated AND segment_2 != "" AND segment_2 != "category"}{redirect="404"}{/if}
-
-	<main>
-		{!-- Global variables for title and intro --}
-		{gv_works_title}
-		{gv_works_intro}
-
-		{!-- Paginate work entries --}
-		{exp:channel:entries
-			disable="categories|category_fields|member_data|trackbacks"
-			channel="works"
-			orderby="date"
-			sort="desc"
-			limit="5"
-			paginate="bottom"
-		}
-			{if count == 1}<ul class="list-latestworks">{/if}
-
-				<li>
-					<article>
-						<p class="imgholder"><img src="{cf_work_img:small}" alt="{cf_work_imgcaption}" /></p>
-						<h3 class="title-item"><a href="{url_title_path='work/detail'}">{title}</a></h3>
-					</article>
-				</li>
-
-			{if count == total_results}</ul>{/if}
-
-			{!-- No results --}
-			{if no_results}<p>No work found: I have been very lazy lately</p>{/if}
-
-			{!-- Pagination --}
-			{paginate}
-				{pagination_links}
-					<ul>
-						{previous_page}<li><a href="{pagination_url}">Previous Page</a></li>{/previous_page}
-						{page}<li{if current_page} class="active"{/if}><a href="{pagination_url}">{pagination_page_number}</a></li>{/page}
-						{next_page}<li><a href="{pagination_url}">Next Page</a></li>{/next_page}
-					</ul>
-				{/pagination_links}
-			{/paginate}
-
-		{/exp:channel:entries}
-
-		{!-- list categories--}
-		{exp:channel:categories channel="works" show_empty="no" style="linear"}
-			{if count == 1}
-				<ul class="list-categories">
-				<li{if "{segment_2}" != "category"} class="current"{/if}><a href="/work">All categories</a></li>
-			{/if}
-    			<li{if active} class="current"{/if}><a href="{path='work/index'}">{category_name}</a></li>
-			{if count == total_results}</ul>{/if}
-		{/exp:channel:categories}
-
-	</main>
-
-{!-- footer as snippet --}
-{sn_sitefooter}
-```
+**Exercice**: créer le template de liste pour le portefolio.
 
 #### Work: detail page
 
-```html
-{exp:channel:entries
-	disable="categories|category_fields|member_data|pagination|trackbacks"
-	channel="works"
-	limit="1"
-	paginate="bottom"
-	require_entry="yes"
-}
+Cette page contient l'ensemble des champs définis pour les entries de type work. La seule "difficulté" dans cette page consiste à réaliser une redirection vers la page 404 si une entrée n'est pas trouvée.
 
-	{!-- 404 --}
-	{if no_results}{redirect="404"}{/if}
-
-	{!-- embed header --}
-	{embed="embeds/.siteheader" html_title="{title}" current_nav="work"}
-
-		<main>
-			<figure>
-				<img src="{cf_work_img:big}" alt="{cf_work_imgcaption}" />
-				<figcaption>{cf_work_imgcaption}</figcaption>
-			</figure>
-			<h1>{title}</h1>
-			{cf_work_summary}
-
-			{if "{cf_work_url}" != ""}
-				<p><a href="{cf_work_url}" class="btn">View Website</a></p>
-			{/if}
-		</main>
-
-	{!-- footer as snippet --}
-	{sn_sitefooter}
-
-{/exp:channel:entries}
-```
+**Exercice**: créer le template de détail pour les travaux.
 
 #### About: page unique avec le module de pages
 
-```html
-{!-- Uing the page module for this template --}
-{exp:channel:entries
-	disable="categories|category_fields|member_data|pagination|trackbacks"
-	channel="pages"
-	limit="1"
-	paginate="bottom"
-	require_entry="yes"
-}
+Cette page nous permet d'utiliser [le module de pages natif d'ExpressionEngine](http://ellislab.com/expressionengine/user-guide/add-ons/pages/).
 
-	{!-- 404 --}
-	{if no_results}{redirect="404"}{/if}
-
-	{!-- embed header --}
-	{embed="embeds/.siteheader" html_title="{title}" current_nav="about"}
-
-		<main>
-
-			<h1>{title}</h1>
-			{cf_page_body}
-
-		</main>
-
-	{!-- footer as snippet --}
-	{sn_sitefooter}
-
-{/exp:channel:entries}
-```
+**Exercice**: créer le template de détail pour les pages.
 
 #### RSS pour le blog
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-   <channel>
-      <title>RSS - Blogposts - My awesome site</title>
-      <link>{site_url}</link>
-      <description>description for my awesome site</description>
-      <language>en-uk</language>
-      <atom:link href="{path='blog/rss'}" rel="self" type="application/rss+xml" />
-      <pubDate>{current_time format="{DATE_RSS}"}</pubDate>
-      <lastBuildDate>{current_time format="{DATE_RSS}"}</lastBuildDate>
-      <managingEditor>webmaster@mysite.com</managingEditor>
-      <webMaster>webmaster@mysite.com</webMaster>
+ExpressionEngine n'est pas limité à la création de fichier HTML. Nous verrons ici comment créer un template en XML respectant le standard RSS 2.0.
 
-      {exp:channel:entries channel="blogs" disable="category_fields|member_data|pagination|trackbacks" status="not closed" orderby="date" sort="desc" limit="10"}
-         <item>
-            <title><![CDATA[{title}]]></title>
-            <pubDate>{entry_date format="{DATE_RSS}"}</pubDate>
-            <description><![CDATA[<p>{cf_blog_summary}</p>]]></description>
-            {categories}<category><![CDATA[{category_name}]]></category>{/categories}
-            <link>{url_title_path="blog/index"}</link>
-            <guid>{url_title_path="blog/index"}</guid>
-         </item>
-      {/exp:channel:entries}
-
-   </channel>
-</rss>
-```
+**Exercice**: créer le template de détail pour le RSS du blog.
 
 ## Pour aller plus loin
 
@@ -809,6 +469,42 @@ ExpressionEngine permet aux utilisateurs confirmés de configurer une installati
 Quelques astuces PHP permettent de rendre ce fichier de configuration dynamique et de passer rapidement d’un serveur à un autre sans devoir configurer l’ensemble des paramètres du site à chaque fois que l’on change de serveur.
 
 Voici [quelques](http://jamieonsoftware.com/post/59689619654/getting-to-know-expressionengine-2s-config-file-part) [articles](http://jamieonsoftware.com/post/59689768301/getting-to-know-expressionengine-2s-config-file-part) [intéressants](http://jamieonsoftware.com/post/59690117179/getting-to-know-expressionengine-2s-config-file-part) détaillant [cette procédure](net.tutsplus.com/tutorials/php/apply-the-dry-principle-to-build-websites-with-expressionengine-2/), ainsi que [la liste des paramètres utilisables dans le cadre de ces fichiers de configuration](http://ellislab.com/expressionengine/user-guide/general/hidden_configuration_variables.html).
+
+### Relationships et Playa
+
+ExpressionEngine dispose d'un [champ "relationships"](http://ellislab.com/expressionengine/user-guide/add-ons/channel/relationships.html) permettant d'établir facilement des relations one to one et one to many entre vos entries. 
+
+**Exercice**: ajouter un champ relationship au blog permettant de sélectionner des articles liés pour chaque blogpost.
+
+[Playa](http://docs.pixelandtonic.com/playa/) est un add-on créé par Pixel&Tonic, antérieur au champ relationship natif, et offrant d'avantage de fonctionnalités tout en proposant une interface utilisateurs qui est à mon sens plus agréable. Ces fonctionnalités et cette interface ont cependant un prix.
+
+### Grid et Matrix
+
+ExpressionEngine dispose également d'un champ "Grid" de type matriciel. Ce type de champ vous permet de créer des contenus qui peuvent se répéter au sein d'une seule entry. Une gallerie de photos ou un tableau de prix sont deux exemples simples.
+
+**Exercice**: ajouter à la page de détail des travaux la possibilité d'avoir une gallerie de screenshots (0 à 5) permettant de présenter divers aspect de chaque travail.
+
+[Matrix](http://docs.pixelandtonic.com/matrix/) est un add-on créé par Pixel&Tonic, antérieur au champ grid natif, et offrant d'avantage de fonctionnalités tout en proposant une interface utilisateurs qui est à mon sens plus agréable. Matrix est également compatible avec d'avantage de champs disponibles à travers des add-ons. Ces fonctionnalités et cette interface ont cependant un prix.
+
+### Search et Low Search
+
+ExpressionEngine intègre également es fonctionnaités de recherche basiques, vous permettant de créer un formulaire de recherche et des pages de résultats. Cependant, si vous cherchez la performance ou si vous avez besoin de focntionnalités plus avancées, low search et super search de solspace sont les otpions à considérer.
+
+**Exercice**: ajouter un moteur de recherche simple (et une page de résultats) à la page d'archive du blog.
+
+### Autres add-ons
+
+#### Low variables: un véritable couteau suisse
+
+Low Variables vous permet de gérer très efficacement les diverses parties de votre site ne se résumant pas à des pages ou à des channels. Cet add-on vous permet de disposer de global variables avancées: supports de custom fields, contrôle du parsing stage, etc.
+
+**Démonstration** low variables sur un site existant.
+
+#### Stash: un autre niveau de templating
+
+Stash est un add-on développé par Mark Croston qui permet de changer radicalement la manière dont vous codez vos templates avec ExpressionEngine.
+
+C'est un add-on gratuit mais extrèmement puissant. Dans les mains d'un dévelopeur averti et familiarisé avec le parse order, Stash vous permet d'atteindre 
 
 ### Channel Form
 
@@ -842,8 +538,11 @@ Si vous préférez quelques tutoriels en ligne pour vous lancer, Mike Boyink de 
 - ["ExpressionEngine Quick Reference"](http://ellislab.com/expressionengine/user-guide/general/quick_reference.html): bonne cheat sheet par EllisLab.
 - [Devot-ee](http://devot-ee.com/): le site de référence en matière d’add-ons pour ExpressionEngine
 - [Show-ee](http://www.show-ee.com/): un site sur lequel vous pourrez trouver de nombreux sites réalisés à l’aide d’ExpressionEngine
-- [EE-Insider](http://eeinsider.com/): la référence en ce qui concerne les news de la communauté
+- [EE-Insider](http://eeinsider.com/): la référence en ce qui concerne les news de la communaut
+- [ExpressionEngine stackexchange](http://expressionengine.stackexchange.com/): le site d'aide en ligne de la communauté.
 - [Le blog officiel d’EllisLab](http://ellislab.com/blog): de nombreux articles sont consacrés à ExpressionEngine.
 - [ExpressionEngine conference](http://www.expressionengineconference.com/): Les conférences annuelles consacrées à ExpressionEngine
 - [Vidéos de certains talks à EECI](http://vimeo.com/whoooz) mises à votre disposition par Inspire Conférence et Robert Eerhart
 - ["Guide to 4040 Pages with ExpressionEngine"](http://joviawebstudio.com/index_ee.php/blog/guide_to_404_pages_with_expressionengine/): par Ryan Battles
+- ["Stash tutorials"](http://www.jamessmith.co.uk/articles/expressionengine-stash-tutorials) par James Smith. Une bonne introduction à Stash et aux apports de cet add-on.
+- ["Stash: core principles"](https://speakerdeck.com/croxton/stash-core-principles) et ["Stash: development strategies"](https://speakerdeck.com/croxton/stash-development-strategies) par Mark Croston: à lire absolument avant de vous lancer dans un build Stash avec ExpressionEngine.

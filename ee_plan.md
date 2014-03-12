@@ -1,26 +1,25 @@
 ## Channels
 
-Name		Short name		Status Group	Field group		Category Group
-
-Work		works			default			work			work
-Blog 		blogs			default			blog			blog
-
+- Work
+	- short name: works
+	- status group: default
+	- field group: work
+	- category group: none
+- Blog
+	- short name: blogs
+	- status group: default
+	- field group: blog
+	- category group: blog
 
 ## Statuses
 
 ### Default group
 
-Open		open
-Closed		closed
+- Open | open
+- Closed | closed
 
 
 ## Categories
-
-### Works
-
-- Web
-- 2D
-- 3D
 
 ### Blogs
 
@@ -40,14 +39,19 @@ Closed		closed
 	- File field (assets/uploads/work_img)
 	- Mandatory
 - cf_work_imgcaption
-	- Text file (128)
+	- Text field (128)
+	- Mandatory
+- cf_work_url
+	- Text field (128)
 	- Mandatory
 - cf_work_summary
 	- Wysiwyg
 	- Mandatory
-- cf_work_url
-	- Text file (128)
+- cf_work_body
+	- Text field (256)
 	- Mandatory
+- cf_work_gallery
+	- Grid (gd_screenshot, gd_caption)
 
 
 ### Blogs
@@ -62,7 +66,7 @@ Closed		closed
 	- Wysiwyg
 	- Mandatory
 - cf_blog_related
-	- relationships
+	- relationships (blogs, open)
 
 
 ## Upload locations
@@ -73,31 +77,28 @@ Closed		closed
 
 ## Template groups / templates
 
+Using the template / layout inheritance available in 2.8
+
 - site
-	- index (homepage: intro / 3 latest works / 3 latest blog posts)
+	- index (homepage: title / intro / 3 latest works / 3 latest blog posts)
 	- 404
 	- page (used for about page)
 - work
-	- index (list)
+	- index
 	- detail
 - blog
-	- index (list)
-	- post (detail)
+	- index
+	- post
 	- rss (feed: last 10 blogposts)
-- embeds
-	- .page_header
-
-
-## Snippets
-
-- sn_page_footer
+- layouts
+	- _page
 
 
 ## Global Variables
 
 - gv_home_title (homepage title)
 - gv_home_intro (homepage intro)
-- gv_work_title (work list page title)
-- gv_work_intro (work list page intro)
-- gv_blog_title (blog list page title)
-- gv_blog_intro (blog list page intro)
+- gv_worklist_title (work list page title)
+- gv_worklist_intro (work list page intro)
+- gv_bloglist_title (blog list page title)
+- gv_bloglist_intro (blog list page intro)
