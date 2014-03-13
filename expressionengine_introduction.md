@@ -166,7 +166,7 @@ If simple
 If / else
 
 ```
-{if count == "1"}
+{if count == 1}
 	something
 {if:else}
 	something else
@@ -176,9 +176,9 @@ If simple
 If / elseif
 
 ```
-{if count == "1"}
+{if count == 1}
 	something
-{if:elseif count == "2"}
+{if:elseif count == 2}
 	something else
 {if:else}
 	default
@@ -346,7 +346,7 @@ Si le sujet de la sécurité vous intéresse, je ne peux que vous recommander [l
 
 ### Etablir un plan
 
-Avant de commencer à coder, il est important de créer un fichier de planning, généralement sous la forme d'un document texte. Ce document, [inspiré de celui utilisé par Newism / Leevi Graham](http://vimeo.com/13378574), spécifie tout ce que nous derons créer dans ExpressionEngine pour satisfaire les besoins du projet.
+Avant de commencer à coder, il est important de créer un fichier de planning, généralement sous la forme d'un document texte. Ce document, [inspiré de celui utilisé par Newism / Leevi Graham](http://vimeo.com/13378574), spécifie tout ce que nous devrons créer dans ExpressionEngine pour satisfaire les besoins du projet.
 
 Pour ma part, j'inclus généralement ce dernier dans mon repository git pour le site, il est donc disponible pour tout le monde.
 
@@ -538,11 +538,11 @@ Si vous préférez quelques tutoriels en ligne pour vous lancer, Mike Boyink de 
 - ["ExpressionEngine Quick Reference"](http://ellislab.com/expressionengine/user-guide/general/quick_reference.html): bonne cheat sheet par EllisLab.
 - [Devot-ee](http://devot-ee.com/): le site de référence en matière d’add-ons pour ExpressionEngine
 - [Show-ee](http://www.show-ee.com/): un site sur lequel vous pourrez trouver de nombreux sites réalisés à l’aide d’ExpressionEngine
-- [EE-Insider](http://eeinsider.com/): la référence en ce qui concerne les news de la communaut
+- [EE-Insider](http://eeinsider.com/): la référence en ce qui concerne les news de la communauté
 - [ExpressionEngine stackexchange](http://expressionengine.stackexchange.com/): le site d'aide en ligne de la communauté.
 - [Le blog officiel d’EllisLab](http://ellislab.com/blog): de nombreux articles sont consacrés à ExpressionEngine.
 - [ExpressionEngine conference](http://www.expressionengineconference.com/): Les conférences annuelles consacrées à ExpressionEngine
 - [Vidéos de certains talks à EECI](http://vimeo.com/whoooz) mises à votre disposition par Inspire Conférence et Robert Eerhart
-- ["Guide to 4040 Pages with ExpressionEngine"](http://joviawebstudio.com/index_ee.php/blog/guide_to_404_pages_with_expressionengine/): par Ryan Battles
+- ["Guide to 404 Pages with ExpressionEngine"](http://joviawebstudio.com/index_ee.php/blog/guide_to_404_pages_with_expressionengine/): par Ryan Battles
 - ["Stash tutorials"](http://www.jamessmith.co.uk/articles/expressionengine-stash-tutorials) par James Smith. Une bonne introduction à Stash et aux apports de cet add-on.
 - ["Stash: core principles"](https://speakerdeck.com/croxton/stash-core-principles) et ["Stash: development strategies"](https://speakerdeck.com/croxton/stash-development-strategies) par Mark Croston: à lire absolument avant de vous lancer dans un build Stash avec ExpressionEngine.

@@ -10,6 +10,11 @@
 	- status group: default
 	- field group: blog
 	- category group: blog
+- Pages
+	- short name: pages
+	- status group: default
+	- field group: pages
+	- category group: none
 
 ## Statuses
 
@@ -66,7 +71,20 @@
 	- Wysiwyg
 	- Mandatory
 - cf_blog_related
-	- relationships (blogs, open)
+	- relationships (blogs)
+
+
+### Pages
+
+- title
+- url_title
+- date
+- cf_page_summary
+	- Wysiwyg
+	- Mandatory
+- cf_page_body
+	- Wysiwyg
+	- Mandatory
 
 
 ## Upload locations
