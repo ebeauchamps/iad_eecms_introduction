@@ -6,7 +6,7 @@
 
 A mes yeux, les grands atouts d’ExpressionEngine sont:
 
-- Le fait qu’il s’agit d’un produit basé sur des technologies open source mais payant et maintenu par une compagnie: ElliLab. Cela vous donne un interlocuteur unique en cas de problème et permet un développement continu du produit.
+- Le fait qu’il s’agit d’un produit basé sur des technologies open source mais payant et maintenu par une compagnie: EllisLab. Cela vous donne un interlocuteur unique en cas de problème et permet un développement continu du produit.
 - Sa nature modulaire qui lui donne une grande flexibilité tout en restant simple d’utilisation. Ce CMS s’adapte à la nature et à la structure de vos données et de votre méthode de travail, et pas l’inverse.
 - Une documentation complète et mise à jour, ainsi qu’une communauté de développeurs et d’utilisateurs des plus serviable et amicale.
 
@@ -18,7 +18,7 @@ Si ExpressionEngine n’est pas toujours très connu en Europe et en Belgique, i
 
 ### Channels
 
-Les [channels](http://ellislab.com/expressionengine/user-guide/modules/channel/index.html) occupent une place centrale dans le mode de fonctionnement d’ExpressionEngine et sont au coeur de sa flexibilité. La plus grande partie des contenus du site vont être définis et structurés dans des channels. ExpressionEngine permet de définir des types de contenus très différents sans aucun présupposé.
+Les [channels](http://ellislab.com/expressionengine/user-guide/modules/channel/index.html) occupent une place centrale dans le mode de fonctionnement d’ExpressionEngine et sont au coeur de sa flexibilité. La plupart des contenus du site vont être définis et structurés dans des channels. ExpressionEngine permet de définir des types de contenus très différents sans aucun présupposé.
 
 Si vous avez besoin d’une métaphore, pensez à vos channels comme à des tables dans une bases de données. Les channels sont les outils pricipaux à l’aide desquels vous allez organiser et structurer les informations de votre futur site.
 
@@ -87,7 +87,7 @@ Même si le système de membership d’ExpressionEngine est assez complet, il ne
 Par conséquent, si votre site repose sur des fonctionnalités nécessitant des comptes utilisateurs et des options de gestion de ces derniers, quelques add-ons vous simplifieront la vie.
 
 - [User](http://www.solspace.com/software/detail/user/) (Solspace) vous permettra de gérer plus facilement vos membres et les templates y étant liés. A l’aide de cet add-on, mettre en place et intégrer un système de membership et de gestion des profils utilisateurs au sein de votre site est un jeu d’enfant.
-- Si vous avez besoin pour vos fonctionnalités de membership de toute la flexibilité que vous offent les channels, les custom fields, et les templates [Zoo Visitor](http://ee-zoo.com/add-ons/visitor) (EE-Zoo), [Profile:Edit](http://mightybigrobot.com/products/detail/profile-edit) (Mighty Big Robot) et [Safecracker Registration](https://objectivehtml.com/safecracker-registration) (Objective HTML) vous seront utiles. Ces add-ons établissent un "pont" entre les profils utilisateurs oar défaut et un channel "spécial" stockant les profils des membres.
+- Si vous avez besoin pour vos fonctionnalités de membership de toute la flexibilité que vous offent les channels, les custom fields et les templates, [Zoo Visitor](http://ee-zoo.com/add-ons/visitor) (EE-Zoo), [Profile:Edit](http://mightybigrobot.com/products/detail/profile-edit) (Mighty Big Robot) et [Safecracker Registration](https://objectivehtml.com/safecracker-registration) (Objective HTML) vous seront utiles. Ces add-ons établissent un "pont" entre les profils utilisateurs oar défaut et un channel "spécial" stockant les profils des membres.
 
 ## Templates: afficher vos données
 
@@ -99,7 +99,7 @@ Ces templates vont définir la manière dont sont affichées les données que vo
 
 ### Types de templates
 
-ExpressionEngine n'a pas de prégugés, si la plupart de vos templates seront sans doute des fichiers HTML, il est également possible de créer des templates JSON, RSS, XML, etc. pour afficher vos données.
+ExpressionEngine n'a pas de préjugés, si la plupart de vos templates seront sans doute des fichiers HTML, il est également possible de créer des templates JSON, RSS, XML, etc. pour afficher vos données.
 
 ### Structure des URLS
 
@@ -112,19 +112,19 @@ template_group/template/url_title
 Les tags ci-après sont les plus utilisés pour créer des liens entre des pages dynamiques:
 
 - `{path="template_group/template"}` créera un lien vers un template précis dans un template group
-- `{url_title_path="template_group/template"}` créera un lien vers un template précis dans un template group en ajoutant l’url title de l’entry à la fin de l’URL. Utilisé pour les pages de détail affichant une entry
+- `{url_title_path="template_group/template"}` créera un lien vers un template précis dans un template group en ajoutant l’`url_title` de l’entry à la fin de l’URL. Ce tag est utilisé pour créer un lien vers les pages de détail affichant une entry.
 
-Attention, les templates d’index dans les divers template groups n’apparaissent pas dans les structure d’URL.
+Attention, les templates d’index dans les divers template groups n’apparaissent pas dans les structures d’URL.
 
 #### Supprimer index.php des URLs
 
-Expressionenigne fait passer toutes les requêtes http par un fichier index.php qui apparait donc dans toutes les URL.
+Expressionenigne fait passer toutes les requêtes http par un fichier `index.php` qui apparait donc dans toutes les URL.
 
-Le module Apache Mod Rewrite et des fichiers '.htaccess' peuvent êtres utilisés pour retirer la mention de ce fichier des URL. [Voici un guide détaillé par EllisLab](http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html).
+Le module Apache Mod Rewrite et des fichiers `.htaccess` peuvent êtres utilisés pour retirer la mention de ce fichier des URL. [Voici un guide détaillé par EllisLab](http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html).
 
 #### Template routes
 
-Les [templates routes](http://ellislab.com/expressionengine/user-guide/urls/template_routes.html), disponibles à partir de la version 2.8 permettent de passer outre cette configuration des URLs par défaut.
+Les [templates routes](http://ellislab.com/expressionengine/user-guide/urls/template_routes.html), disponibles à partir de la version 2.8.0 permettent de passer outre cette configuration des URLs par défaut.
 
 Chaque template peut ainsi se voir assigné une URL particulière. Ces URL peuvent également contenir des variables qui peuvent dès lors être utilisées dans vos templates, tout comme les variables de segments plus classiques.
 
@@ -189,7 +189,7 @@ If / elseif
 {/if}
 ```
 
-L’ordre dans lequel ExpressionEngine execute ses opération (parse order) et le type de conditionnels utilisés peuvent parfois poser problème. Il faut donc vous familiarisez avec le mode de fonctionnement d’ExpressionEngine en la matière. Voir à ce sujet un [PDF](http://loweblog.com/downloads/ee-parse-order.pdf) et une [présentation détaillée](https://speakerdeck.com/low/parse-order-pro) par Lodewijk Schutte (Low).
+L’ordre dans lequel ExpressionEngine execute ses opérations (parse order) et le type de conditionnels utilisés peuvent parfois poser problème. Il faut donc vous familiarisez avec le mode de fonctionnement d’ExpressionEngine en la matière. Voir à ce sujet un [PDF](http://loweblog.com/downloads/ee-parse-order.pdf) et une [présentation détaillée](https://speakerdeck.com/low/parse-order-pro) par Lodewijk Schutte (Low).
 
 Il existe des add-ons gratuits étendant les possibilités des structures conditionnelles de base et modifiant leur ordre de préséance dans l’exécution des operations par ExpressionEngine. Les plus connus et les plus utilisés sont dans doute [Switchee](http://devot-ee.com/add-ons/switchee) et [IfElse](http://devot-ee.com/add-ons/ifelse) développés par Mark "the" Croxton.
 
@@ -248,9 +248,9 @@ Certains templates peuvent être imbriqués dans d’autres templates: c’est c
 
 #### Template layouts
 
-Comme dit plus haut, cette fonctionnalité permet de passer à un nouveau paradigme en terme de templating avec ExpressionEngine: l'héritage de template.
+Comme dit plus haut, cette fonctionnalité permet de passer à un nouveau paradigme en terme de templating avec ExpressionEngine: l'héritage de templates.
 
-Le concept est assez simple à comprendre. Nous avons un template "parent" dans lequel viennent se placer les templates enfants. C'est l'inverse du paradigme d'embedded templates qui était le seul dont nous disposions avant la version 2.8.0.
+Le concept est assez simple à comprendre. Nous avons un template "parent" dans lequel viennent se placer les templates "enfants". C'est l'inverse du paradigme d'embedded templates qui était le seul dont nous disposions avant la version 2.8.0.
 
 Voici un exemple simple:
 
@@ -282,9 +282,9 @@ Voici un exemple simple:
 <p>Hello World</p>
 ```
 
-Le template enfant, servi par le CMS lorsque le navigateur l'affiche, va appeller le template parent et le contenu du telplate enfant va s'afficher en lieu et place du tag {layout:contents}
+Le template enfant, servi par le CMS lorsque le navigateur l'affiche, va appeller le template parent et le contenu du template enfant va s'afficher en lieu et place du tag `{layout:contents}`
 
-Bien entendu, cette technique n'est utile que si il est possible de passer des variables depuis le template enfant vers le template parent. Ces variables peuvent soit être passées via le tag {layout} lui même, soit via un tag {layout:set}. Cette dernière syntaxe offre bien plus de flexibilité et est à privilégier.
+Bien entendu, cette technique n'est utile que si il est possible de passer des variables depuis le template enfant vers le template parent. Ces variables peuvent soit être passées via le tag `{layout}` lui même, soit via un tag `{layout:set}`. Cette dernière syntaxe offre bien plus de flexibilité et est à privilégier.
 
 **Template enfant**
 
@@ -352,7 +352,7 @@ Pour ma part, j'inclus généralement ce dernier dans mon repository git pour le
 
 Outre le plan, il est également important de suivre certaines conventions. Celles-ci vont vous permettre de gagner du temps et de clarifier une série de concepts pour les membres de votre équipe ou pour tout développeur devant travailler sur votre site par après.
 
-Voici une liste non exhaustives des conventions que j'applique:
+Voici une liste non exhaustives des conventions conseillées:
 
 - Avoir un field group correspondant à chaque channel. Cela peut créer certaines répétitions mais c'est nettement plus clair pour tout le monde.
 - Un seul status group par site dans la mesure du possible. Ces status sont uniquement liés au workflow de publication.
@@ -368,13 +368,13 @@ Une fois le plan réalisé, passons à la configuration du système.
 
 #### Supprimer index.php des URL avec .htaccess
 
-Sur des serveurs UNIX / Apache, [EllisLab fourni une marche à suivre pour supprimer "index.php" des URLs de votre site](http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html). Celle-ci implique de créer un fichier .htaccess dans la racine de votre folder publique (htdocs).
+Sur des serveurs UNIX / Apache, [EllisLab fourni une marche à suivre pour supprimer "index.php" des URLs de votre site](http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html). Celle-ci implique de créer un fichier `.htaccess dans la racine de votre folder publique (htdocs).
 
 #### Etapes pour gagner du temps
 
 Lorsque vous mettez en place un site ExpressionEngine, il convient de faire les choses dans un certain ordre pour être efficace. Voici la procédure standard à suivre pour gagner du temps:
 
-1. **Installer vos add-ons**: Certains add-ons interagissent avec les members, les fichiers et les channels. Il est donc préférable de les installer dès le début. Nous installerons developper et quicksave.
+1. **Installer vos add-ons**: Certains add-ons interagissent avec les members, les fichiers et les channels. Il est donc préférable de les installer dès le début. Nous installerons [developer](http://devot-ee.com/add-ons/developer-acc) et [Quicksave](http://devot-ee.com/add-ons/quicksave).
 
 2. **Mettre en place vos Member Groups**: Vous devrez certainement utiliser ces member groups dans les étapes suivantes. Typiquement, vous aurez un groupe pour les super-admins (le client en est généralement exclu) et un groupe pour les administrateurs de contenu. Certains autres groupes peuvent également être créés dans le cadre de certains projets. Vous devrez revenir aux Member Groups par la suite, mais mettez déjà en place ce dont vous avez besoin.
 
@@ -388,7 +388,7 @@ Lorsque vous mettez en place un site ExpressionEngine, il convient de faire les 
 
 7. **Configurer les Channels**: Vos Category Groups, Status Groups et Custom Fields sont déjà en place.
 
-8. **Terminer la configuration des member groups**: vous pouvez maintenant revenir aux Member Groups et leur asiigner les permissions pour les Channels et Modules, ainsi que faire les dernier réglages.
+8. **Terminer la configuration des member groups**: vous pouvez maintenant revenir aux Member Groups et leur assigner les permissions pour les Channels et Modules, ainsi que faire les derniers réglages.
 
 ### Création des templates
 
@@ -406,7 +406,7 @@ Auparavant, nous aurions été contraints de gérer le header et le footer à l'
 
 Nous utiliserons les global variables pour stocker tous les petits éléments du site qui doivent être facilement éditables mais ne trouvent pas naturellement leur place dans un channel (intriduction et liste des pages, code google analytics, etc).
 
-[Low Variables](http://gotolow.com/addons/low-variables) vous permet de facilement donner accès à ces global variables à vos utilisateurs, de gérer les permissions et de profiter des custom fields.
+[Low Variables](http://gotolow.com/addons/low-variables) vous permet de facilement donner accès à ces global variables à vos utilisateurs, de gérer les permissions d'accès de manière fine, de profiter des custom fields et même de modifier le parse order.
 
 #### Homepage
 
@@ -458,13 +458,13 @@ ExpressionEngine n'est pas limité à la création de fichier HTML. Nous verrons
 
 ## Pour aller plus loin
 
-Ces quelques pages ne contiennent qu’une introduction à ExpressionEngine. Ce système offre bien d’autres possibilités que vous serez amenés à utiliser si vous aller plus loin qu’une simple introduction.
+Ces quelques pages ne contiennent qu’une introduction à ExpressionEngine. Ce système offre bien d’autres possibilités que vous serez amenés à utiliser si vous allez plus loin qu’une simple introduction.
 
 ### Fichiers de configuration dynamiques
 
-Lorsqu’on développe un site de manière professionnelle aujourd’hui, il est courant de devoir gérer différents environnements server pour un même site: développement, staging, production.
+Lorsqu’on développe un site de manière professionnelle aujourd’hui, il est courant de devoir gérer différents environnements serveur pour un même site: développement, staging, production.
 
-ExpressionEngine permet aux utilisateurs confirmés de configurer une installation sans forcément utiliser le control panel, en passant uniquement par un fichier de configuration. Cette approche offre un gain de temps notable et augmente également la flexibilité de votre installation en terme d’environnements serveurs.
+ExpressionEngine permet aux utilisateurs confirmés de configurer une installation sans forcément utiliser le control panel, en passant principalement par un fichier de configuration. Cette approche offre un gain de temps notable et augmente également la flexibilité de votre installation en terme d’environnements serveurs.
 
 Quelques astuces PHP permettent de rendre ce fichier de configuration dynamique et de passer rapidement d’un serveur à un autre sans devoir configurer l’ensemble des paramètres du site à chaque fois que l’on change de serveur.
 
@@ -476,7 +476,7 @@ ExpressionEngine dispose d'un [champ "relationships"](http://ellislab.com/expres
 
 **Exercice**: ajouter un champ relationship au blog permettant de sélectionner des articles liés pour chaque blogpost.
 
-[Playa](http://docs.pixelandtonic.com/playa/) est un add-on créé par Pixel&Tonic, antérieur au champ relationship natif, et offrant d'avantage de fonctionnalités tout en proposant une interface utilisateurs qui est à mon sens plus agréable. Ces fonctionnalités et cette interface ont cependant un prix.
+[Playa](http://docs.pixelandtonic.com/playa/) est un add-on créé par [Pixel & Tonic](https://pixelandtonic.com/), antérieur au champ relationship natif, et offrant d'avantage de fonctionnalités tout en proposant une interface utilisateurs qui est à mon sens plus agréable. Ces fonctionnalités et cette interface ont cependant un prix.
 
 ### Grid et Matrix
 
@@ -484,11 +484,11 @@ ExpressionEngine dispose également d'un champ "Grid" de type matriciel. Ce type
 
 **Exercice**: ajouter à la page de détail des travaux la possibilité d'avoir une gallerie de screenshots (0 à 5) permettant de présenter divers aspect de chaque travail.
 
-[Matrix](http://docs.pixelandtonic.com/matrix/) est un add-on créé par Pixel&Tonic, antérieur au champ grid natif, et offrant d'avantage de fonctionnalités tout en proposant une interface utilisateurs qui est à mon sens plus agréable. Matrix est également compatible avec d'avantage de champs disponibles à travers des add-ons. Ces fonctionnalités et cette interface ont cependant un prix.
+[Matrix](http://docs.pixelandtonic.com/matrix/) est un add-on créé par [Pixel & Tonic](https://pixelandtonic.com/), antérieur au champ grid natif, et offrant d'avantage de fonctionnalités tout en proposant une interface utilisateurs qui est à mon sens plus agréable. Matrix est également compatible avec d'avantage de champs disponibles à travers des add-ons. Ces fonctionnalités et cette interface ont cependant un prix.
 
 ### Search et Low Search
 
-ExpressionEngine intègre également es fonctionnaités de recherche basiques, vous permettant de créer un formulaire de recherche et des pages de résultats. Cependant, si vous cherchez la performance ou si vous avez besoin de focntionnalités plus avancées, low search et super search de solspace sont les otpions à considérer.
+ExpressionEngine intègre également es fonctionnaités de recherche basiques, vous permettant de créer un formulaire de recherche et des pages de résultats. Cependant, si vous cherchez la performance ou si vous avez besoin de focntionnalités plus avancées, [Low Search](http://devot-ee.com/add-ons/low-search) et [Super Search de Solspace](http://www.solspace.com/software/detail/super_search/) sont les options à considérer.
 
 **Exercice**: ajouter un moteur de recherche simple (et une page de résultats) à la page d'archive du blog.
 
@@ -496,15 +496,15 @@ ExpressionEngine intègre également es fonctionnaités de recherche basiques, v
 
 #### Low variables: un véritable couteau suisse
 
-Low Variables vous permet de gérer très efficacement les diverses parties de votre site ne se résumant pas à des pages ou à des channels. Cet add-on vous permet de disposer de global variables avancées: supports de custom fields, contrôle du parsing stage, etc.
+Low Variables vous permet de gérer très efficacement les diverses parties de votre site ne se résumant pas à des pages ou à des channels. Cet add-on vous permet de disposer de global variables avancées: supports de custom fields, contrôle granulaire des permissions, contrôle du parsing stage, etc.
 
 **Démonstration** low variables sur un site existant.
 
 #### Stash: un autre niveau de templating
 
-Stash est un add-on développé par Mark Croston qui permet de changer radicalement la manière dont vous codez vos templates avec ExpressionEngine.
+[Stash](https://github.com/croxton/Stash) est un add-on développé par Mark "the" Croxton qui permet de changer radicalement la manière dont vous codez vos templates avec ExpressionEngine.
 
-C'est un add-on gratuit mais extrèmement puissant. Dans les mains d'un dévelopeur averti et familiarisé avec le parse order, Stash vous permet d'atteindre 
+C'est un add-on gratuit mais extrèmement puissant. Dans les mains d'un dévelopeur averti et familiarisé avec le parse order, Stash peut accomplir des miracles. A voir aussi, [Mustash](http://devot-ee.com/add-ons/mustash), un add-on payant vous permettant de faire du caching.
 
 ### Channel Form
 
@@ -524,7 +524,7 @@ La communauté regorge de développeurs reconnus pour leur travail et offrant un
 
 #### Développer vos propres add-ons
 
-Si vous souhaitez développer vous même vos propres add-ons, [EllisLab vous propose des instructions détaillés pour ce faire](http://ellislab.com/expressionengine/user-guide/development/).
+Si vous souhaitez développer vous même vos propres add-ons, [EllisLab vous propose des instructions détaillées pour ce faire](http://ellislab.com/expressionengine/user-guide/development/).
 
 ExpressionEngine étant développé sur base du framwork MVC open source qu’est [CodeIgniter](http://ellislab.com/codeigniter), les ressources de ce framework sont disponibles et vous permettent de développer des add-ons permettant d'étendre les capacités du système.
 
@@ -534,7 +534,7 @@ Les [screencasts de Mijingo consacrés à ExpressionEngine](http://mijingo.com/p
 
 Si vous préférez quelques tutoriels en ligne pour vous lancer, Mike Boyink de Train-ee vous en propose [quelques-uns en accès gratuit sur son site](http://www.train-ee.com/courseware/free-tutorials). Les ressources payantes valent également la peine.
 
-- ["ExpressionEngine USer Guide"](http://ellislab.com/expressionengine/user-guide/): la documentation d'ExpressionEngine par EllisLab.
+- ["ExpressionEngine User Guide"](http://ellislab.com/expressionengine/user-guide/): la documentation d'ExpressionEngine par EllisLab.
 - ["ExpressionEngine Quick Reference"](http://ellislab.com/expressionengine/user-guide/general/quick_reference.html): bonne cheat sheet par EllisLab.
 - [Devot-ee](http://devot-ee.com/): le site de référence en matière d’add-ons pour ExpressionEngine
 - [Show-ee](http://www.show-ee.com/): un site sur lequel vous pourrez trouver de nombreux sites réalisés à l’aide d’ExpressionEngine
@@ -545,4 +545,4 @@ Si vous préférez quelques tutoriels en ligne pour vous lancer, Mike Boyink de 
 - [Vidéos de certains talks à EECI](http://vimeo.com/whoooz) mises à votre disposition par Inspire Conférence et Robert Eerhart
 - ["Guide to 404 Pages with ExpressionEngine"](http://joviawebstudio.com/index_ee.php/blog/guide_to_404_pages_with_expressionengine/): par Ryan Battles
 - ["Stash tutorials"](http://www.jamessmith.co.uk/articles/expressionengine-stash-tutorials) par James Smith. Une bonne introduction à Stash et aux apports de cet add-on.
-- ["Stash: core principles"](https://speakerdeck.com/croxton/stash-core-principles) et ["Stash: development strategies"](https://speakerdeck.com/croxton/stash-development-strategies) par Mark Croston: à lire absolument avant de vous lancer dans un build Stash avec ExpressionEngine.
+- ["Stash: core principles"](https://speakerdeck.com/croxton/stash-core-principles) et ["Stash: development strategies"](https://speakerdeck.com/croxton/stash-development-strategies) par Mark Croxton: à lire absolument avant de vous lancer dans un build Stash avec ExpressionEngine.
